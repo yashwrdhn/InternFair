@@ -1,0 +1,103 @@
+.brand {
+    font-family: GT Walsheim Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #484A52;
+}
+.nav-menu{
+    font-family: GT Walsheim Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #484A52;
+    overflow: hidden;
+}
+ul{
+    margin-left: auto;
+    position: relative;
+    left: 22vw;
+}
+.RegisterBtn{
+    width: 91px;
+    height: 34px;
+    background: #416EA8;
+    border-radius: 4px;
+    font-family: GT Walsheim Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;    
+}
+.head{
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 27px;
+    color: #212121;
+    padding-top: 50px;
+    padding-bottom: 32px !important;
+    font-family: GT Walsheim Pro ;
+}
+.form-group{
+    text-align: center;
+    font-family: GT Walsheim Pro ;
+}
+.form-control{
+    width: 36% !important;
+    margin-left: 32% !important;
+    margin-right: 32% !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+    color: #484A52 !important;
+    margin-bottom: 24px !important;
+    background: #EEF4FB !important;
+    border-radius: 6px !important;
+}
+.regn{
+    width: 36% !important;
+    margin-left: 32% !important;
+    margin-right: 32% !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-family: GT Walsheim Pro ;
+}
+.btn{
+    background: #416EA8 !important;
+    border-radius: 6px !important;
+}
+.student{
+    text-align: center;
+    
+}
+.intern{
+    font-style: normal !important;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 11px;
+    text-decoration-line: underline;
+    color: #6696DD !important;
+    font-family: GT Walsheim Pro ;
+}
+@font-face {
+    font-family: GT Walsheim Pro;
+    src: local("GT Walsheim Pro Regular"),local("GTWalsheimProRegular"),url(GTWalsheimProRegular.woff2) format("woff2"),url(GTWalsheimProRegular.woff) format("woff"),url(GTWalsheimProRegular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal
+  }
+  
+  @font-face {
+    font-family: GT Walsheim Pro;
+    src: local("GT Walsheim Pro Bold"),local("GTWalsheimProBold"),url(GTWalsheimProBold.woff2) format("woff2"),url(GTWalsheimProBold.woff) format("woff"),url(GTWalsheimProBold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal
+}
+

@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: local('GT Walsheim Pro Medium'), local('GT-Walsheim-Pro-Medium'),
+        url('GTWalsheimPro-Medium.woff2') format('woff2'),
+        url('GTWalsheimPro-Medium.woff') format('woff'),
+        url('GTWalsheimPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+    a {
+      color: #000000;
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+    body {
+      font-family: "GT Walsheim Pro";
+      font-size: 1rem;
+    }
+
+    @media (min-width: 1200px) {
+      .container{
+          max-width: 1600px;
+      }
+    }
+    .light-text {
+      color: #6c757d!important;
+    }
+
+    .navbar{
+      background: #ffffff;
+      box-shadow: 0px 2px 8px rgba(72, 74, 82, 0.08);
+    }
+    .navbar-light .navbar-nav .active
+    {
+      color: #416EA8;
+    }
+
+    div a,
+    div a:after,
+    div a:before {
+      transition: all .1s;
+    }
+
+    div .activa{
+      color: #416EA8;
+    }
+    div a:hover:after {
+      width: 80%;
+    }
+
+    input[type="search"] {
+
+      background: #F2F3F5;
+      border-radius: 6px;
+      margin-right: 4px;
+    }
+
+  .btn-color{
+    margin-top: 2px;
+    align-self: center;
+    align-items: center;
+    background-color: #416EA8;
+    border-radius: 20%;
+    }
+  .search-color{
+    color: #FFFFFF;
+    }
+    .line {
+      margin: 2.5rem 0;
+      border: 2px solid rgba(33, 33, 33, 0.12);
+    }
+
+
+    .top {
+      border-top: 0.5px solid rgba(72, 74, 82, 0.1);
+    }
+    .top:hover{
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+    }
+
+    #logo {
+      width: 100%;
+      max-width: 100px;
+      max-height: auto;
+    }
+
+    #company-name {
+      font-weight: 700;
+      line-height: 1.2;
+      font-size: 2.25rem;
+    }
+
+    #table-head {
+      border-bottom: 0.5px solid rgba(72, 74, 82, 0.1);
+    }
+    .profile-userpic img {
+      border-radius: 50%;
+    }
+    .navbar-light .navbar-nav .active>.nav-link:hover {
+      color: #416EA8;
+    }
+    @media (min-width: 768px) {
+      .hov:hover {
+        color: #416EA8;
+      }
+      a.activo {
+        border-bottom: 2px solid #416EA8;
+        border-width: 80%;
+        padding-bottom: 15px;
+      }
+      .profile-userpic img {
+        max-height: 30px;
+        max-width: 30px;
+        border-radius: 50%;
+      }
+      .little-center-table{
+        padding-left: 20px;
+      }
+      .padding {
+        padding: .75rem !important;
+      }
+      input[type="search"] {
+        width: 302px;
+        height: 36px;
+      }
+
+    }
+
+    @media(max-width: 768px) {
+      #company-name {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+    }
