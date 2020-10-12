@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Profile1.css' %}">
+    <title>Students profile page</title>
+    
+</head>
+<body>
+   <nav> <header>
+	  <div class = "header">
+	     <ul class = "top">
+		    <li> <a href = "#"> Student's Page</a></li>
+		 </ul>
+		 <ul>
+		    <li class = "a"> <a href = "#"> Dashboard </a></li>
+			<li class = "b"> <a href = "#"> Available Internships  </a></li>
+			<li class = "c"> <a href = "#"> Contact Us </a></li>
+			<li class = "d"> <a href = "#"> Log out </a></li>
+		 </ul>
+	  </div>
+    </header></nav>
+      
+	<div class="card">
+        <div class="upperpart">
+            <div class="image">
+                <img src= "{% static 'image/test_image_ecell.jpg' %}"alt="loading...">
+            </div>
+        </div>
+        <div class = "info">
+		<div class = "name">
+		<h1> Ritu Patil</h1>
+		</div>
+		<div class = "designation1">
+		    <p> DEPARTMENT </p></div>
+		<div class = "answer1">
+		    <p> Mechanical Engineering</p></div>
+	    <div class = "designation2">
+		    <p> ROLL NUMBER</p></div>
+		<div class = "answer2">
+		    <p> 190103066</p></div>
+		<div class = "button">
+		     <button class= "edit" > Edit Profile </button>
+		</div></div>
+    </div>
+    <div class = "lower">
+	<div class = "right">
+	    <p class = "R"> You have 4 more chances to apply and grab an internship </p>
+		<button id = "onclick"> Apply to companies</button>
+	</div>
+	<div class = "bold">
+	    <h1> Internships you've registered for </h1>
+	</div><div class = "search">
+        <input id = "search" type ="text"/> Search </input>
+</div></div>
+	<br>
+	<table class="table">
+        <thead>
+          <tr class="tablehead">
+            <th></th>
+            <th scope="col">Name</th>
+            <th scope="col">Profile</th>
+            <th scope="col">Location</th>
+            <th scope="col">Stipend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class ="myrow">
+            <th scope="row"><img src="{% static 'image/red.png' %}" class = "dot" alt=""></th>
+            <td> Google </td>  <td> Front-End</td><td> Hyderabad </td>   <td> N/A </td>
+          </tr>
+          <tr class="myrow">
+            <th scope="row"><img src="{% static 'image/yellow.png' %}" class = "dot" alt=""></th>
+            <td> Yahoo  </td>   <td> Front-End</td><td> Hyderabad</td>   <td> N/A </td>
+          </tr>
+          <tr class="myrow">
+            <th scope="row"><img src="{% static 'image/blue.png' %}" class = "dot" alt=""></th>
+            <td> Facebook </td>   <td> Front-End </td><td> Mumbai </td>   <td> N/A </td>
+          </tr>
+          <tr class="myrow">
+            <th scope="row"><img src="{% static 'image/green.png' %}" class = "dot" alt=""></th>
+            <td> Apple</td>   <td> Front-End </td><td> Delhi </td>   <td> N/A </td>
+            
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>
+
+
+	    
+	 
+			
+		 
+			
+	     
+

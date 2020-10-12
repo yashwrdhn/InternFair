@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: local('GT Walsheim Pro Medium'), local('GT-Walsheim-Pro-Medium'),
+        url('../font/GTWalsheimPro-Medium.woff2') format('woff2'),
+        url('../font/GTWalsheimPro-Medium.woff') format('woff'),
+        url('../font/GTWalsheimPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.modal-header{
+    border-bottom: 0px !important;
+}
+.modal-footer{
+    border-top: 0px !important;
+    justify-content: normal !important;
+}
+.question{
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #6A6A6A !important;
+    padding-left: 5% !important;
+    font-family: GT Walsheim Pro ;
+    padding-top: 2% !important;
+}
+.title{
+    padding-top: 3% !important;
+    padding-left: 2% !important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 27px;
+    color: #212121;
+}
+.edit{
+    background-color: #416EA8 !important;
+    border-radius: 4px !important;
+    font-family: GT Walsheim Pro ;
+    padding-left: 66px !important;
+    padding-right: 66px !important;
+    
+}
+.deactivate{
+    padding-left: 66px !important;
+    padding-right: 66px !important;
+    font-style: normal !important;
+font-weight: 500 !important;
+font-size: 16px !important;
+line-height: 18px !important;
+text-decoration-line: underline !important;
+
+color: #416EA8 !important;
+font-family: GT Walsheim Pro ;
+}
+.ques{
+    margin-top: 100% !important;
+}
+.modal-dialog{
+    padding-top: 8% !important;
+}
+.number{
+    font-family: GT Walsheim Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #212121;
+    padding-left: 5% !important;
+}
+.number2{
+    padding-bottom: 18% !important;
+}

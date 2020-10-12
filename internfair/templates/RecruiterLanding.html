@@ -1,0 +1,96 @@
+<!doctype  html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css" >
+    <link rel="stylesheet" href="{% static 'css/RecruiterLanding.css' %}" >
+     
+    <title>login </title>
+  </head>
+
+
+
+  <body>
+  
+  
+  <nav class="navbar navbar-expand bg-light navbar-light justify-content-between">
+    <a href="#" class="float-right navbar-brand">Internfair</a>
+    <!-- Links -->
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact us</a>
+      </li>
+      <li class="nav-item">
+        <a class=" btn" href="#">Register</a>
+      </li>
+    </ul>
+  
+  </nav>
+      
+      
+    
+  
+
+      <div class="container-fluid bg-light border-top border-bottom "   >
+      
+        <div class="row pt-2 pb-5 pl-5 pr-5" >
+           
+          <div class="col-lg-5 col-md-5 col-xs-8  mt-5  ">
+            
+            <h1 class="head pl-3">Interested in Recruiting Students who push their limits</h1>
+            <p class="pl-3">Internfair provide perfect platform to connect with them</p><br>
+            
+            <div class="col-md-10 col-lg-8  ">
+              
+              <span class="float-left font-size"><h5>Recruiter's login </h5></span><span class="float-right links"><a href="#">I am Student</a></span><br>
+              
+              <form action="/action_page.php">
+                <div class="form-group ">
+                  <!-- <label for="email" class=" mb-2 mr-2"> </label> -->
+                  <input type="email" class="form-control mb-2 mr-2" id="email" placeholder="Email" name="email">
+                </div>
+                <br>
+                <div class="form-group ">
+                  <label for="pwd" class=" mb-2 mr-2">Password:</label>
+                  <input type="password" class="form-control mb-2 mr-2" id="pwd" placeholder="Password" name="pswd">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-block  ">Login</button>
+                
+                <div class="links mt-1">
+                  <span class="float-left links "><a href="#">don't have an account</a></span>
+                  <span class="float-right links"><a href="#">forgot password ?</a></span>
+                  <br>
+                </div>
+              </form>
+            </div>
+            <br><br>
+          </div>
+        
+          <div class="col-xs-7 col-lg-7 col-md-7 bg-light justify-content-center bg   " ><img class= "img-fluid " src="{% static 'image/bg.jpg' %}"></div>
+         
+           
+  
+        </div>
+      </div>  
+
+      
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+ </body>
+ </html>
+ 
+   
