@@ -14,9 +14,23 @@ def StudentProfile(request):
 def AvailableInternships(request):
     return render(request, "AvailableInternships.html")
 
+    
 
+def RecruiterLanding(request):
+    template = "RecruiterLanding.html"
+    return render(request,template)
 
+def RecruiterRegistration(request):
+    template = "RecruiterRegistration.html"
+    context = []
+    return render(request, template,context)
 
+def AvailableInterns(request):
+    template = "AvailableInterns.html"
+    context = []
+    return render(request, template,context)
 
-
-
+def CompanyProfile(request):
+    template = "CompanyProfile.html"
+    context  = []
+    return render(request, template,context)
