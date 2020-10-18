@@ -51,7 +51,7 @@
             
             <div class="col-md-10 col-lg-8  ">
               
-              <span class="float-left font-size"><h5>Recruiter's login </h5></span><span class="float-right links"><a href="#">I am Student</a></span><br>
+              <span class="float-left font-size"><h5>Recruiter's login </h5></span><span class="float-right links"><a href="{% url 'index' %}">I am Student</a></span><br>
               
               <form action="/action_page.php">
                 <div class="form-group ">
@@ -67,7 +67,7 @@
                 <button type="submit" class="btn btn-block  ">Login</button>
                 
                 <div class="links mt-1">
-                  <span class="float-left links "><a href="#">don't have an account</a></span>
+                  <span class="float-left links "><a href="{% url 'RecruiterRegistration' %}">don't have an account</a></span>
                   <span class="float-right links"><a href="#">forgot password ?</a></span>
                   <br>
                 </div>
