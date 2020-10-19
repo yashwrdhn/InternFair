@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css" >
     <link rel="stylesheet" href="{% static 'css/RecruiterLanding.css' %}" >
+
      
     <title>login </title>
   </head>
@@ -30,7 +31,7 @@
         <a class="nav-link" href="#">Contact us</a>
       </li>
       <li class="nav-item">
-        <a class=" btn" href="#">Register</a>
+        <a class=" btn" href=" {% url 'RecruiterRegistration' %}">Register</a>
       </li>
     </ul>
   
@@ -81,7 +82,7 @@
            
   
         </div>
-      </div>  
+      </div>
 
       
       

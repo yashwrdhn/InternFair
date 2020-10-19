@@ -31,3 +31,7 @@ def AvailableInterns(request):
 def CompanyProfile(request):
     template = "CompanyProfile.html"
     return render(request, template)
+
+
+def random_template(request):
+    return render(request,"InternProfileCard.html")

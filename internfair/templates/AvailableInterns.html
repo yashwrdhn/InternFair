@@ -8,8 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
   <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInterns.css' %}">
+  <link rel="stylesheet" href="{% static 'css/InternAnswerCard.css' %}" >
+<!--  <link rel="stylesheet" href="{% static 'css/InternProfileCard.css' %}">-->
+
+
 
   <title>Available interns</title>
 </head>
@@ -101,74 +104,100 @@
           <div class="col-md-4 padding">
 
 
-            <a href="#details" d> Priyanshu Gupta</a></div>
+            <a href="#profile" data-toggle="modal"> Priyanshu Gupta</a></div>
 
           <div class="col-md-4 padding">Front-end</div>
           <div class="col-md-4 padding">Mechanical Engineering</div>  
         </div>
       </div>
     </div>
-    
-    <div class="row p-2 p-md-0 top">
-      <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-      <div class="col-auto col-md p-0 px-md-3">
-        <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-          <div class="col-md-4 padding">Priyanshu Gupta</div>
-          <div class="col-md-4 padding">Front-end</div>
-          <div class="col-md-4 padding">Mechanical Engineering</div>  
+
+
+
+    <!------------------------------------------modal for internanswercard --------------------------------->
+
+
+    <div class='container '>
+      <!-- button attached to open the pop up details
+      Add data-toggle="modal" and data-target="#modalID" to any element.
+      Note: For <a> elements, omit data-target, and use href="#modalID" instead:-->
+
+<!--      <button class="btn btn-lg btn-outline-success" type="button"  data-toggle="modal" data-target="#details">open it up</button>-->
+
+
+
+     <div class="modal fade  " id="details">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+        <div class="modal-content border">
+
+
+            <h3 class="modal-title pl-4 pt-4"><b>Yashwardhan singh</b></h3>
+
+
+
+          <div class="modal-body">
+
+
+              <p><h7 id="ques">Q1</h7><br><b>Lorem Ipsum has been the industelease oith desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    1s. It has survived not only five centuries, but also the leap int column</b></p>
+
+              <p><h7 id="ques">Q2</h7><br><b>  ry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 1960s with the r1st column
+                </b></p>
+
+              <p><h7 id="ques">Q3</h7><br><b>1st f Letraset sheets containing Lorem Ipsum passages, and more recently wcolum scrambled it to make a type specimen bookto electronic typesetting, remaining essentially unchanged. It was popularised in then</b></p>
+          </div>
+
+          <div class="pb-3 mx-5 ">
+
+                <a href='#profile' class='btn mx-2 px-5 my-2 btn-outline-primary border-lg ' data-toggle='modal' data-dismiss="modal" >View profile</a>
+                <a href='#' class='btn mx-2 px-5 my-2 btn-primary border-lg '>Shortlist</a>
+
+          </div>
+
         </div>
       </div>
-      
+     </div>
     </div>
 
-    <div class="row p-2 p-md-0 top">
-      <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-      <div class="col-auto col-md p-0 px-md-3">
-        <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-          <div class="col-md-4 padding">Priyanshu Gupta</div>
-          <div class="col-md-4 padding">Front-end</div>
-          <div class="col-md-4 padding">Mechanical Engineering</div>  
+
+    <!-------------------------intern profile card ------------------------------------------------------------------->
+
+     <div class='container '>
+
+     <div class="modal fade  " id="profile">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+        <div class="modal-content border">
+
+          <h3 class="modal-title pl-3 pt-3 "><b>Priyanshu gupta</b></h3>
+          <div class="modal-body">
+
+
+              <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
+                <img src="{% static 'image/test_image_ecell.jpg' %}" class="rounded-circle img-fluid" alt="">
+              </div>
+
+
+              <p><h7 id="ques">DEPARTMENT</h7><br><b>EP</b></p>
+              <p><h7 id="ques">ROLL NO.</h7><br><b>190121059</b></p>
+              <p><h7 id="ques">BIO</h7><br><b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus facilis, quas est qui omnis
+                                ea!</b></p>
+
+          <div class="pb-3 mx-2 ">
+
+            <a href='#details' class='btn px-3 my-2 btn-outline-primary border-lg ' data-dismiss='modal' data-toggle="modal">View Answers to form</a>
+                <a href='#' class='btn  mx-1 px-5 my-2 btn-primary border-lg '>Shortlist</a>
+
+          </div>
+
         </div>
       </div>
-      
+     </div>
     </div>
 
-    <div class="row p-2 p-md-0 top">
-      <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-      <div class="col-auto col-md p-0 px-md-3">
-        <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-          <div class="col-md-4 padding">Priyanshu Gupta</div>
-          <div class="col-md-4 padding">Front-end</div>
-          <div class="col-md-4 padding">Mechanical Engineering</div>  
-        </div>
-      </div>
-      
-    </div>
 
-    <div class="row p-2 p-md-0 top">
-      <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-      <div class="col-auto col-md p-0 px-md-3">
-        <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-          <div class="col-md-4 padding">Priyanshu Gupta</div>
-          <div class="col-md-4 padding">Front-end</div>
-          <div class="col-md-4 padding">Mechanical Engineering</div>  
-        </div>
-      </div>
-      
-    </div>
 
-    <div class="row p-2 p-md-0 top">
-      <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-      <div class="col-auto col-md p-0 px-md-3">
-        <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-          <div class="col-md-4 padding">Priyanshu Gupta</div>
-          <div class="col-md-4 padding">Front-end</div>
-          <div class="col-md-4 padding">Mechanical Engineering</div>  
-        </div>
-      </div>
-      
-    </div>
-  
+
+
   
 
 </div>
