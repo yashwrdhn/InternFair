@@ -1,0 +1,202 @@
+@font-face {
+  font-family: 'GT Walsheim Pro';
+  src: local('GT Walsheim Pro Medium'), local('GT-Walsheim-Pro-Medium'),
+      url('../font/GTWalsheimPro-Medium.woff2') format('woff2'),
+      url('../font/GTWalsheimPro-Medium.woff') format('woff'),
+      url('../font/GTWalsheimPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+*{  
+    margin: 0px;
+    padding: 0px;
+    font-family: "GT Walsheim Pro";
+}
+
+.container{
+    background-color:rgba(72, 74, 82, 0.08);
+    display: flex;
+    height: 100vh;
+}
+
+.card{
+    padding: 24px;  
+    box-sizing: border-box;
+    width: 540px;
+    height: 705px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+
+.card h1{
+   color:  #212121;
+font-weight: bold;
+font-size: 27px;
+line-height: 27px;
+flex: none;
+order: 0;
+text-align: center;
+}
+.card h2
+{
+
+margin-block-start: 24px;
+font-size: 16px;
+line-height: 18px;
+
+color: #3A3A3A;
+
+
+
+
+
+}
+.box
+{
+  height: 52px;
+}
+.box p
+{
+  padding-top: 28px;
+
+
+
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #6A6A6A;
+background-color: white;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+align-self: center;
+
+
+}
+input[type=text], select
+{
+
+width: 100%;
+height: 52px;
+left: 0px;
+top: 26px;
+border-width: 0px;
+background: #EEF4FB;
+border-radius: 6px;
+border-color:  #EEF4FB;
+outline: none;
+}
+.box-2 a
+{
+  margin-block-start: 28px;
+  float: right;
+  font-size:11px ;
+}
+.box-2 p
+
+{
+  margin-block-start: 28px;
+  float: left;
+  font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #6A6A6A;
+background-color: white;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+align-self: center;
+}
+.box-2
+{
+  height:52px ;
+
+}
+.bottom
+{
+
+text-align: center;
+margin-top: 30px;
+box-sizing: border-box;
+
+}
+.button-one
+{
+  color:#416EA8;
+   display: inline-block;
+
+border-width: 0px;
+
+width: 105px;
+height: 42px;
+
+background-color: white;
+
+/* Inside Auto Layout */
+
+
+align-self: center;
+
+
+}
+.button-two
+{
+  background: #416EA8;
+ border-color: white;
+  color: white;
+top: 0px;
+
+padding: 12px 36px;
+border-width: 0px;
+
+width: 105px;
+height: 42px;
+
+display: inline-block;
+cursor: pointer;
+border-radius: 4px;
+outline: none;
+/* Inside Auto Layout */
+
+align-self: center;
+
+
+}
+
+
+
+  @media screen and (max-width:400px) {
+    .card
+    {
+      width: 100%;
+    }
+
+
+    }
+    @media screen and (max-height:950px) {
+      .container
+      {
+      height:953px;
+      }
+
+
+      }

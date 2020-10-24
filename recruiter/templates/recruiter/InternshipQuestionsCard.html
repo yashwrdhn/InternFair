@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
+
+    <title>Document</title>
+</head>
+<body style="background-color: black">
+    <div>
+        <div class="quesCard">
+            <div style="padding: 5%;">
+                <div style="text-align: center;">
+                    <span class="heading">Internship Form</span><br><br>
+                </div>
+                
+                <span class="sub-heading">Question for preliminary interview</span>
+                <form action="">
+                    <br>
+                    <span class="Qheading">Question 1</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <span class="Qheading">Question 2</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <span class="Qheading">Question 3</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <button class="addQues">Add More Questions</button>
+                </form>
+                <br>
+                <div class="row align-items-center ">
+                    <div class="col-5 text-right"><a href="" class="back">Back</a></div>
+                    <div class="col-7 text-left"><button class="Publish">Publish</button></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

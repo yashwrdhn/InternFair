@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: local('GT Walsheim Pro Medium'), local('GT-Walsheim-Pro-Medium'),
+        url('../font/GTWalsheimPro-Medium.woff2') format('woff2'),
+        url('../font/GTWalsheimPro-Medium.woff') format('woff'),
+        url('../font/GTWalsheimPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+
+@media screen and (min-width: 768px){
+    .head{
+        font-size:3vw;
+       
+     }
+     .bg {
+         margin-top:10vw;
+
+     }
+    
+     
+
+    
+
+}
+@media screen and (min-width:992px){
+    .head{
+        font-size:3vw;
+    
+     }
+     .bg {
+         margin-top:0vw;
+     }
+}
+
+@media screen and (max-width:767px){
+    .row {
+        flex-direction: column-reverse;
+    }
+    .head {
+        font-size: 8vw;
+    }
+    .nav-item{
+        font-size:3vw!important;
+    }
+    .btn {
+        font-size: 3vw;
+    }
+    .pl-5{
+        padding-left: 2vw!important;
+    }
+    .pr-5{
+        padding-right: 2vw!important;
+    }
+
+}
+/*
+body {
+    font-family : "GT Walsheim Pro";
+    font-size : 1rem;
+    min-width: 320px;
+    min-height: 100bh;
+
+}
+*/
+ .links {
+     color :6696DD;
+     font-size : 0.7rem;
+     margin-top: 1vw;
+
+ }
+ .navbar {
+     padding : 1vw 5vw;
+     
+ }
+ .nav-item {
+     padding: 2px;
+ }
+
+
+ .form-control {
+    background: #EEF4FB;
+    font-size: 0.8rem;
+    block-size: 3rem;
+    
+ }
+
+ .btn {
+    background: #416EA8;
+    color: #EEF4FB;
+ }
+
+ .btn:hover {
+    background:#EEF4FB;
+    color: #416EA8;
+ }

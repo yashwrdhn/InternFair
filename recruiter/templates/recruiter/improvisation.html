@@ -1,0 +1,61 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head >
+    <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard2.css' %}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>edit profile</title>
+  </head>
+  <body>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch Card
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="mx-auto " >
+            <b>Edit profile</b>
+            </div>
+
+        </div>
+        <div class="prelim mx-auto">
+             <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
+                <img src="{% static 'image/p.png' %}" class="rounded-circle img-fluid" alt="">
+              </div>
+             <button class=" btn btn-sm   btn-outline-primary " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
+             <input type='file' id="getFile" style="display:none">
+        </div>
+            <label for="question1" class="question" class="ques">COMPANY NAME</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="question1" >
+            </div>
+            <label for="question2" class="question">COMPANY DESCRIPTION</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="question2">
+            </div>
+            <label for="question3" class="question">COMPANY LOCATION</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="question3" >
+            </div>
+        <div class="modal-footer mx-auto">
+
+          <button type="button" class="btn btn-white back" data-dismiss="modal" >No</button>
+          <button type="button" class="btn btn-primary submit"  >Save Changes</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
