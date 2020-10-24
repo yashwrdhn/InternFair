@@ -16,22 +16,3 @@ def AvailableInternships(request):
 
 
 
-def RecruiterLanding(request):
-    template = "RecruiterLanding.html"
-    return render(request,template)
-
-def RecruiterRegistration(request):
-    template = "RecruiterRegistration.html"
-    return render(request, template)
-
-def AvailableInterns(request):
-    template = "AvailableInterns.html"
-    return render(request, template)
-
-def CompanyProfile(request):
-    template = "CompanyProfile.html"
-    return render(request, template)
-
-
-def random_template(request):
-    return render(request,"InternProfileCard.html")
