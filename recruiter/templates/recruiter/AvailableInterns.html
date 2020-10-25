@@ -1,70 +1,22 @@
-<!DOCTYPE html>
+{% extends "recruiter/base1.html" %}
 
 {% load static %}
 
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInterns.css' %}">
-  <link rel="stylesheet" href="{% static 'css/InternAnswerCard.css' %}" >
 
 
 
-  <title>Available interns</title>
+
+
+  <title>{% block title %} Available Interns {% endblock %} </title>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-light fixed-top py-2 p-md-0" id="main-navbar">
-    <div class="container d-flex" style="height: 100%;">
-      <div class="col-4">
-        <span><a href="{% url 'recruiter:Profile' %}">Recruiter's page</a></span>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="col collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav m-0 d-flex justify-content-around" style="width: 100%;">
-          <li class="nav-item active py-md-2 curr-page-ul">
-            <a class="nav-link current-page" href="#">Dashboard<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active py-md-2">
-            <a class="nav-link" href="#">Internship Statistics</a>
-          </li>
-          <li class="nav-item active py-md-2">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item active py-md-2">
-            <a class="nav-link" href="#" style="color: #416EA8;">Log Out</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+    {% block content  %}
 
 
-  <div class="container">
-    <div class="row" style="margin-top: 6rem;">
-      <div class="col-12 col-md-2 d-flex justify-content-center align-items-center"><img src="https://demo.appcarvers.com/junite/media/com_easysocial/photos/1606/4686/google-logo-icon-png-transparent-background_thumbnail.png" id="logo"></div>
-    <div class="col-md-4 pb-3 pb-md-0">
-      <h1 id="company-name">Google</h1>
-      <div class="light-text" style="font-size: .75rem;">COMPANY DESCRIPTION</div>
-      <p>AI startup Kolkata, researching on neural pathways.</p>
-      <div class="light-text" style="font-size: .75rem;">LOCATION</div>
-      <p>Kolkata</p>
-      <a href= "#editprofile" data-toggle="modal"  style="color: #416EA8; font-size: .75rem;">Edit Profile</a>
-    </div>
-    <div class="col-md-6 d-flex align-items-center">
-      <div>
-        <p>Add a new internship position to start recruiting</p>
-      <a class="btn btn-custom btn-responsive" href="#" role="button">Add an internship form</a>
-      </div>
-      
-    </div>
-  </div>
-    <hr class="line">
   
   <div class="row mb-5 justify-content-between">
     <div class="col-md-6 pb-4 pb-md-0 highlight">
@@ -211,14 +163,9 @@
      </div>
      </div>
 
-
+ {% endblock %}
 
 <!---------------------------------------------------------------->
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 
   

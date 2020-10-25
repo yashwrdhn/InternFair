@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
   <head >
-    <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard2.css' %}">
+    <link rel="stylesheet" href="{% static 'recruiter/css/theme_config.css' %}">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +33,7 @@
              <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
                 <img src="{% static 'image/p.png' %}" class="rounded-circle img-fluid" alt="">
               </div>
-             <button class=" btn btn-sm   btn-outline-primary " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
+             <button class=" btn btn-sm   btn-primary submit " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
              <input type='file' id="getFile" style="display:none">
         </div>
             <label for="question1" class="question" class="ques">COMPANY NAME</label>
