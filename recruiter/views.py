@@ -15,6 +15,10 @@ def AvailableInterns(request):
     template = "recruiter/AvailableInterns.html"
     return render(request, template)
 
+def add_Interns(request):
+    template = "recruiter/AvailableInterns.html"
+    return render(request, template)
+
 def ShortlistedInterns(request):
     template = "recruiter/ShortlistedInterns.html"
     return render(request, template)
@@ -25,4 +29,4 @@ def CompanyProfile(request):
 
 
 def random_template(request):
-    return render(request,"recruiter/Improvisation.html")
+    return render(request,"recruiter/base1.html")
