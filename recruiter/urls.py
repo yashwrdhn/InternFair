@@ -2,6 +2,7 @@ from django.urls import include, path
 from . import views
 
 app_name = 'recruiter'
+
 urlpatterns = [
 
     path('', views.RecruiterLanding, name='RecruiterLanding'),
