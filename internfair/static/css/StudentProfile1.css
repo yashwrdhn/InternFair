@@ -110,7 +110,7 @@ body {
   border-top: 1px solid rgba(222,226,230, 1);
 }
 
-#logo {
+#profileLogo {
   width: 100%;
   max-width: 100px;
   max-height: auto;
@@ -123,12 +123,505 @@ body {
   font-size: 2.25rem;
 }  
 
-.apply {
+.applied {
     text-align: center;
     margin-left: 3rem !important;
     margin-top: 7rem !important;
 }
+/* 
+edit profile modal css start */
+
+.editProfileModal{
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+
+ 
+
+.btn {
+  font-weight: 700;
+  height: 36px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  font-family: GT Walsheim Pro;
+}
+
+/*
+* Card component
+*/
+.Editcard {
+  background-color: 	#FFFFFF;
+  /* just in case there no content*/
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  width: 547px;
+  top: 10% !important;
+  position: relative;
+  /* shadows and rounded borders */
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+ 
+}
+
+.profile-img-card {
+  width: 100px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+
+  border-radius: 50%;
+
+}
+
+/*
+* Form styles
+*/
+.profile-name-card {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 0;
+  min-height: 1em;
+  font-family: GT Walsheim Pro;
+}
+
+.reauth-email {
+  display: block;
+  color: #404040;
+  line-height: 2;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: GT Walsheim Pro;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+  direction: ltr;
+  height: 44px;
+  font-size: 16px;
+  font-family: GT Walsheim Pro;
+}
+
+.form-signin input[type=text],
+.form-signin input[type=text],
+.form-signin input[type=text],
+.form-signin button {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #EEF4FB;
+  font-family: GT Walsheim Pro;
+}
+
+.form-signin .form-control:focus {
+  border-color: rgb(104, 145, 162);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+  font-family: GT Walsheim Pro;
+}
+
+.btn.btn-signin {
+  /*background-color: #4d90fe; */
+  /*background-color: rgb(104, 145, 162);
+  /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+  padding: 0px;
+  font-weight: 700;
+  font-size: 14px;
+  height: 36px;
+  margin-left: 70px;
+  margin-top: 30px;
+/*  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;*/
+  /*border-radius: 3px;*/
+  border: none;
+  background-color: #FFFFFF;
+  /*-o-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -webkit-transition: all 0.218s;
+  transition: all 0.218s;*/
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+  background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+  color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+  color: rgb(12, 97, 33);
+}
+
+h4.prof{
+text-align: center;
+margin-bottom: 20px;
+  font-family: GT Walsheim Pro;
+
+font-size: 20px;
+font-weight: bold;
+}
+
+p.size{
+  font-size: 10px;
+  color: #34a1eb;
+  margin-left: 150px;
+  padding-top: 0.1px;
+  padding-bottom: 20px;
+}
+
+label.company-name{
+color: 	rgb(211,211,211);
+font-size: 11px;
+font-style: GT Walsheim Pro;
+
+}
+
+.full{
+  width:100%;
+  font-size: 8px;
+  text-align: end;
+  font-family: GT Walsheim Pro;
+  float: right;
+}
+
+button.mybtn{
+background-color: #304980;
+color : #FFFFFF;
+align-self: center;
+margin-left: 90px;
+margin-top: 30px;
+  font-family: GT Walsheim Pro;
+
+}
+
+input.myfile{
+color : #FFFFFF;
+  font-family: GT Walsheim Pro;
+}
+
+button.uploadbtn{
 
 
 
+border-width: thin;
+color : #304980;
+background-color: #FFFFFF;
+border-color: #304980;
+border-radius: 7px;
+font-family: GT Walsheim Pro;
+}
 
+.no{
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #416EA8;
+}
+
+ .save{
+  width: 125px !important;
+  height: 42px;
+  background: #416EA8 !important;
+  border-radius: 4px !important; 
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 18px;
+  color: #FFFFFF;
+  right: -100px !important;
+
+
+}
+
+@media (max-width:750px){
+  
+
+  .save{
+      width: 90px !important;
+      
+      
+  }
+
+  .Save{
+    text-align: center !important;
+  }
+
+  .Editcard{
+    width: 80%;
+  }
+  .No{
+    text-align: center !important;
+  }
+}
+@media (max-width:400px){
+  .save{
+      width: 90px !important;
+      right: -50px !important;
+  }
+
+  .Editcard{
+    width: 80%;
+  }
+  
+}
+
+@media (max-width:320px){
+  .save{
+      width: fit-content !important;
+      clear: both;
+      
+  }
+}
+/* 
+edit profile modal css ends */
+
+
+/* List of applied internships */
+#table-head {
+  border-bottom: 0.5px solid rgba(72, 74, 82, 0.1);
+}
+
+.top {
+  border-top: 0.5px solid rgba(72, 74, 82, 0.1);
+}
+
+.top:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.profile-userpic img {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.padding{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+/* Application Summary modal start */
+
+.applicationSummary {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+
+.card {
+
+  font-family: GT Walsheim Pro;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: white;
+  background-color: white !important;
+  padding: 30px;
+  margin: 20px;
+  padding: 36px 0px 0px 36px;
+  align-self: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 575px;
+  height: 455px;
+  background: #FFFFFF;
+  border-radius: 16px;
+
+}
+
+.name {
+  width: 127px;
+  height: 41px;
+  font-size: 20px;
+  line-height: 41px;
+  margin: 0px 5px;
+  transform: translate(13px);
+  color: #212121;
+  font-weight: 600;
+  font-family: GT Walsheim Pro;
+}
+
+#image {
+
+  text-shadow: gray;
+  height: 60px;
+  transform: translate(10px);
+  background: url(google-new-logo-1030x541.jpg);
+}
+
+.right {
+
+  text-align: left;
+  top: 50%;
+  font-family: GT Walsheim Pro;
+  transform: translate(335px, -170px);
+}
+
+.left {
+  transform: translate(10px, 15px);
+}
+
+.answer {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: #212121;
+  transform: translateY(-15px);
+}
+
+.lead {
+
+  font-style: normal;
+  transform: translateY(-5px);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #B6B6B6;
+
+
+}
+
+.apply {
+  font-size: 16px;
+  align-self: center;
+  position: static;
+  width: 503px;
+  height: 50px;
+  color: white;
+  background: #416EA8;
+  transform: translate(-33px, -130px) !important;
+  text-decoration-color: rgb(42, 42, 202);
+  transform: translateY(-170px);
+  border-radius: 5px;
+  border: blue;
+}
+
+.x {
+  transform: translateY(-13px);
+}
+
+/* Application Summary modal ends */
+
+/* Cancel confirmation modal */
+
+.confirmCard{
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+.card-text {
+  font-size: .9rem;
+  font-family: "GT Walsheim Pro";
+}
+.btn-custom {
+  color: #fff;
+  background-color: #416EA8;
+  border-color: #416EA8;
+
+
+}
+.confirmModal{
+  font-family: GT Walsheim Pro;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  align-self: center;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+}
+#company {
+  text-decoration: underline;
+}
+#logo {
+  width: 50px; height: 40px;
+  margin: .5rem !important;
+}
+
+@media (max-width:600px){
+  .card{
+    width: 80%;
+  }
+}
