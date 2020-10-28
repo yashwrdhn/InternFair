@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/CompanyDetailsCard.css' %}">
      <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">
-    <button data-toggle="modal" data-target="#try2" type="button">here</button>
+    <button id="btn1" type="button">here</button>
 </head>
         <div class="modal fade " id="try`"  role="dialog" >
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
@@ -142,3 +142,11 @@
                 </div>
             </div>
     </div>
+
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#try").modal();
+  });
+});
+</script>
