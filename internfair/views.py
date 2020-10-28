@@ -15,4 +15,3 @@ def AvailableInternships(request):
     return render(request, "AvailableInternships.html")
 
 
-

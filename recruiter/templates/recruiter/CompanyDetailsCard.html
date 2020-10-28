@@ -1,61 +1,144 @@
-<!DOCTYPE html>
+
 {% load static %}
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Details</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/CompanyDetailsCard.css' %}">
+     <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">
+    <button data-toggle="modal" data-target="#try2" type="button">here</button>
 </head>
-<body>
-    <div class="container">
-        <div class="card">
-            
-                <h1>Internship Form</h1>
-                <h2>Company Bio</h2>
-                 <div class="box">
-                    <p>PROFILE</p>
-                 </div>
-                 <div class="box">
-                    <input type="text"><br>
-                 </div>
-                 <div class="box-2">
-                    <p>LOCATION</p>
-                    <a href="#">Kindly use full name. Eg:Mechanical Engineer</a>
-                 </div>
-                 <div class="box">
-                    <input type="text"><br>
-                 </div>
-                 <div class="box">
-                    <p>STIPEND</p>
-                 </div>
-                 <div class="box">
-                    <input type="text"><br>
-                 </div>
-                 <div class="box">
-                    <p>ALLOWANCES</p>
-                 </div>
-                 <div class="box">
-                    <input type="text"><br>
-                 </div>
-                 <div class="box">
-                    <p>REMARKS</p>
-                 </div>
-                 <div class="box">
-                    <input type="text"><br>
-                 </div>
+        <div class="modal fade " id="try`"  role="dialog" >
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                <div class="modal-content ">
+                     <h2 class="modal-header mx-auto">Internship Form</h2>
 
-            <div class="bottom">
-               <a href="#" class="button-one"><u>Close</u></a>
-                <button class="button-two">Next</button>
+                    <div class="modal-body">
+                        <div class="form-group">
 
 
+                            <h4>Company Bio</h4>
+<!--                             <div class="box">-->
+<!--                                <p>PROFILE</p>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <input type="text"><br>-->
+<!--                             </div>-->
+<!--                             <div class="box-2">-->
+<!--                                <p>LOCATION</p>-->
+<!--                                <a href="#">Kindly use full name. Eg:Mechanical Engineer</a>-->
+<!--                             </div>-->
+<!--                             <div class="form-control">-->
+<!--                                <input type="text"><br>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <p>STIPEND</p>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <input type="text"><br>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <p>ALLOWANCES</p>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <input type="text"><br>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <p>REMARKS</p>-->
+<!--                             </div>-->
+<!--                             <div class="box">-->
+<!--                                <input type="text"><br>-->
+<!--                             </div>-->
+
+<!--                            <div class="bottom">-->
+<!--                               <a href="#" class="btn btn-outline-primary"><u>Close</u></a>-->
+<!--                                <button class="btn btn-primary">Next</button>-->
+<!--                            </div>-->
+
+
+                       <!----created new form ------------>
+
+                    <label for="question1" class="question" >PROFILE</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="question1" >
+                    </div>
+                    <label for="question2" class="question">STIPEND</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="question2">
+                    </div>
+                    <label for="question3" class="question">LOCATION</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="question3" >
+                    </div>
+                    <label for="question4" class="question">ALLOWANCE</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="question4" >
+                    </div>
+                    <label for="question5" class="question">REMARKS</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="question5" >
+                    </div>
+                <div class="modal-footer mx-auto">
+                       {% include "recruiter/InternshipQuestionsCard.html" %}
+
+                    <a class="btn btn-primary" href="#try2"    data-toggle='modal' data-dismiss="modal"  >Next</a>
+
+                  <button type="button" class="btn btn-outline-primary " data-dismiss="modal" >Back</button>
+
+
+                </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+
+
+
+    {% include  "recruiter/js.html" %}
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!--     <button data-toggle="modal" data-target="#try2" type="button">here</button>-->
+    <div class="modal fade " id="try2"   >
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                <div class="modal-content ">
+                     <h2 class="modal-header mx-auto">Internship Form</h2>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+        <div class="">
+            <div style="padding: 5%;">
+                <div style="text-align: center;">
+                    <span class="heading">Internship Form</span><br><br>
+                </div>
+
+                <span class="sub-heading">Question for preliminary interview</span>
+                <form action="">
+                    <br>
+                    <span class="Qheading">Question 1</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <span class="Qheading">Question 2</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <span class="Qheading">Question 3</span>
+                    <input type="text" class="input">
+                    <br><br>
+                    <button class="addQues">Add More Questions</button>
+
+                <br>
+                <div class="row align-items-center ">
+                    <div class="col-5 text-right"><a href="#try"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
+                    <div class="col-7 text-left"><button class="Publish">Publish</button></div>
+                </div>
+                     </form>
             </div>
 
-
         </div>
-
     </div>
-
-</body>
-</html>
+                    </div>
+                </div>
+            </div>
+    </div>

@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-
 {% load static %}
 
 <html>
@@ -10,7 +9,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInterns.css' %}">
-   <link rel="stylesheet" href="{% static 'css/InternAnswerCard.css' %}" >
+   <link rel="stylesheet" href="{% static 'css/theme_config.css' %}" >
 
   {% block stylesheets %}
   {% endblock stylesheets %}
@@ -61,7 +60,10 @@
     <div class="col-md-6 d-flex align-items-center">
       <div>
         <p>Add a new internship position to start recruiting</p>
-      <a class="btn btn-custom btn-responsive" href="#" role="button">Add an internship form</a>
+           {% include "recruiter/CompanyDetailsCard.html" %}
+      <a class="btn btn-custom btn-responsive" href="#try" role="button"  data-toggle="modal">
+
+          Add an internship form</a>
       </div>
 
     </div>
@@ -88,7 +90,7 @@
                      <button class=" btn btn-sm   btn-primary submit " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
                      <input type='file' id="getFile" style="display:none">
                 </div>
-                    <label for="question1" class="question" class="ques">COMPANY NAME</label>
+                    <label for="question1" class="question" >COMPANY NAME</label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="question1" >
                     </div>
@@ -101,11 +103,10 @@
                         <input type="text" class="form-control" id="question3" >
                     </div>
                 <div class="modal-footer mx-auto">
-
+                    <button type="button" class="btn btn-primary "  >Save Changes</button>
                   <button type="button" class="btn btn-outline-primary " data-dismiss="modal" >No</button>
-                  <button type="button" class="btn btn-primary "  >Save Changes</button>
-
                 </div>
+
               </div>
             </div>
           </div>

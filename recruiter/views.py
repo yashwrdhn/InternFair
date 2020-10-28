@@ -29,4 +29,4 @@ def CompanyProfile(request):
 
 
 def random_template(request):
-    return render(request,"recruiter/base1.html")
+    return render(request,"recruiter/CompanyDetailsCard.html")
