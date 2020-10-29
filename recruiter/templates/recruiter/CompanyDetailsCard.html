@@ -1,11 +1,13 @@
 
 {% load static %}
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/CompanyDetailsCard.css' %}">
-     <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">
-    <button id="btn1" type="button">here</button>
-</head>
-        <div class="modal fade " id="try`"  role="dialog" >
+
+<html>
+
+<body>
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">btn1</button>/-->
+
+        <div class="modal fade " id="myModal"  role="dialog" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
                 <div class="modal-content ">
                      <h2 class="modal-header mx-auto">Internship Form</h2>
@@ -76,9 +78,9 @@
                         <input type="text" class="form-control" id="question5" >
                     </div>
                 <div class="modal-footer mx-auto">
-                       {% include "recruiter/InternshipQuestionsCard.html" %}
 
-                    <a class="btn btn-primary" href="#try2"    data-toggle='modal' data-dismiss="modal"  >Next</a>
+
+                    <a class="btn btn-primary" href="#myModal2"    data-toggle='modal' data-dismiss="modal"  >Next</a>
 
                   <button type="button" class="btn btn-outline-primary " data-dismiss="modal" >Back</button>
 
@@ -93,18 +95,17 @@
 
 
 
-    {% include  "recruiter/js.html" %}
-<!--</body>-->
-<!--</html>-->
 
 
 
+<!--<button type="button"  data-toggle="modal" data-target="#myModal2">btn1</button>/-->
 
-<!--     <button data-toggle="modal" data-target="#try2" type="button">here</button>-->
-    <div class="modal fade " id="try2"   >
+
+
+    <div class="modal fade " id="myModal2"   >
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
                 <div class="modal-content ">
-                     <h2 class="modal-header mx-auto">Internship Form</h2>
+                     <h2 class=" mx-auto">Internship Form</h2>
 
                     <div class="modal-body">
                         <div class="form-group">
@@ -129,8 +130,9 @@
                     <button class="addQues">Add More Questions</button>
 
                 <br>
+                    <br>
                 <div class="row align-items-center ">
-                    <div class="col-5 text-right"><a href="#try"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
+                    <div class="col-5 text-right"><a href="#myModal"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
                     <div class="col-7 text-left"><button class="Publish">Publish</button></div>
                 </div>
                      </form>
@@ -143,10 +145,8 @@
             </div>
     </div>
 
-<script>
-$(document).ready(function(){
-  $("#btn1").click(function(){
-    $("#try").modal();
-  });
-});
-</script>
+
+   {% include  "recruiter/js.html" %}
+
+</body>
+</html>

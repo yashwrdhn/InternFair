@@ -1,0 +1,430 @@
+@font-face {
+  font-family: 'GT Walsheim Pro';
+  src: local('GT Walsheim Pro Medium'), local('GT-Walsheim-Pro-Medium'),
+    url('../font/GTWalsheimPro-Medium.woff2') format('woff2'),
+    url('../font/GTWalsheimPro-Medium.woff') format('woff'),
+    url('../font/GTWalsheimPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+body {
+  font-family: "GT Walsheim Pro";
+  font-size: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+.light-text {
+  color: #6c757d !important;
+}
+
+.navbar {
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(72, 74, 82, 0.08);
+}
+
+.navbar-light .navbar-nav .active {
+  color: #416EA8;
+}
+
+div a,
+div a:after,
+div a:before {
+  transition: all .1s;
+}
+
+div .activa {
+  color: #416EA8;
+}
+
+div a:hover:after {
+  width: 80%;
+}
+
+input[type="search"] {
+
+  background: #F2F3F5;
+  border-radius: 6px;
+  margin-right: 4px;
+}
+
+.btn-color {
+  margin-top: 2px;
+  align-self: center;
+  align-items: center;
+  background-color: #416EA8;
+  border-radius: 20%;
+}
+
+.search-color {
+  color: #FFFFFF;
+}
+
+.line {
+  margin: 2.5rem 0;
+  border: 2px solid rgba(33, 33, 33, 0.12);
+}
+
+
+.top {
+  border-top: 0.5px solid rgba(72, 74, 82, 0.1);
+}
+
+.top:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+#logo {
+  width: 100%;
+  max-width: 100px;
+  max-height: auto;
+}
+
+#company-name {
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 2.25rem;
+}
+
+#table-head {
+  border-bottom: 0.5px solid rgba(72, 74, 82, 0.1);
+}
+
+.profile-userpic img {
+  border-radius: 50%;
+}
+
+.navbar-light .navbar-nav .active>.nav-link:hover {
+  color: #416EA8;
+}
+
+/* modal css begin */
+
+
+.applyToCompany {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+
+.card {
+
+  font-family: GT Walsheim Pro;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: white;
+  background-color: white !important;
+  padding: 30px;
+  margin: 20px;
+  padding: 36px 0px 0px 36px;
+  align-self: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 575px;
+  height: 455px;
+  background: #FFFFFF;
+  border-radius: 16px;
+
+}
+
+.name {
+  width: 127px;
+  height: 41px;
+  font-size: 20px;
+  line-height: 41px;
+  margin: 0px 5px;
+  transform: translate(13px);
+  color: #212121;
+  font-weight: 600;
+  font-family: GT Walsheim Pro;
+}
+
+#image {
+
+  text-shadow: gray;
+  height: 60px;
+  transform: translate(10px);
+  background: url(google-new-logo-1030x541.jpg);
+}
+
+.right {
+
+  text-align: left;
+  top: 50%;
+  font-family: GT Walsheim Pro;
+  transform: translate(335px, -170px);
+}
+
+.left {
+  transform: translate(10px, 15px);
+}
+
+.answer {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: #212121;
+  transform: translateY(-15px);
+}
+
+.lead {
+
+  font-style: normal;
+  transform: translateY(-5px);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #B6B6B6;
+
+
+}
+
+.apply {
+  font-size: 16px;
+  align-self: center;
+  position: static;
+  width: 503px;
+  height: 50px;
+  color: white;
+  background: #416EA8;
+  transform: translate(-33px, -130px) !important;
+  text-decoration-color: rgb(42, 42, 202);
+  transform: translateY(-170px);
+  border-radius: 5px;
+  border: blue;
+}
+
+.x {
+  transform: translateY(-13px);
+}
+
+/* modal css end */
+
+.questionModal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.input {
+  width: 100%;
+  height: 52px;
+  border: none;
+  background: #EEF4FB;
+  border-radius: 6px;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.quesCard {
+  font-family: GT Walsheim Pro;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: white;
+  background-color: white !important;
+  padding: 30px;
+  margin: 20px;
+  padding: 36px 0px 0px 36px;
+  align-self: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 575px;
+  height: 700px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding-left: 10px;
+
+
+}
+
+.heading {
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 27px;
+  color: #212121;
+  width: 100%;
+  text-align: center;
+}
+
+.sub-heading {
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  flex: none;
+  order: 1;
+  align-self: flex-start;
+  color: #3A3A3A;
+  margin-bottom: -10px !important;
+}
+
+.Qheading {
+  padding-top: 20px;
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6A6A6A;
+}
+
+.addQues {
+  padding: 2%;
+  background-color: white;
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  border: 1px solid #416EA8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #416EA8;
+
+}
+
+
+.bottom {
+  position: relative;
+  bottom: -100px !important;
+}
+
+.back {
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #416EA8;
+}
+
+.Publish {
+  width: 125px;
+  height: 42px;
+  background: #416EA8;
+  border-radius: 4px;
+  font-family: GT Walsheim Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+
+
+}
+
+@media (max-width:750px) {
+  .quesCard {
+    width: 80%;
+    height: fit-content;
+    padding-bottom: 10px;
+  }
+
+  .bottom {
+    bottom: 0% !important;
+  }
+
+  .Publish {
+    width: 100px;
+  }
+
+  .input {
+    height: 40px;
+  }
+}
+
+@media (max-width:400px) {
+  .Publish {
+    width: 70px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hov:hover {
+    color: #416EA8;
+  }
+
+  a.activo {
+    border-bottom: 2px solid #416EA8;
+    border-width: 80%;
+    padding-bottom: 15px;
+  }
+
+  .profile-userpic img {
+    max-height: 30px;
+    max-width: 30px;
+    border-radius: 50%;
+  }
+
+  .little-center-table {
+    padding-left: 20px;
+  }
+
+  .padding {
+    padding: .75rem !important;
+  }
+
+  input[type="search"] {
+    width: 302px;
+    height: 36px;
+  }
+
+}
+
+@media(max-width: 768px) {
+  #company-name {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+}

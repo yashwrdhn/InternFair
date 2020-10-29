@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInterns.css' %}">
    <link rel="stylesheet" href="{% static 'css/theme_config.css' %}" >
+     <link rel="stylesheet" href="{% static 'css/InternshipQuestionsCard.css' %}">
 
   {% block stylesheets %}
   {% endblock stylesheets %}
@@ -60,8 +61,9 @@
     <div class="col-md-6 d-flex align-items-center">
       <div>
         <p>Add a new internship position to start recruiting</p>
-           {% include "recruiter/CompanyDetailsCard.html" %}
-      <a class="btn btn-custom btn-responsive" href="#try" role="button"  data-toggle="modal">
+                {% include "recruiter/CompanyDetailsCard.html" %}
+
+      <a class="btn btn-custom btn-responsive" href="#myModal" role="button"  data-toggle="modal">
 
           Add an internship form</a>
       </div>
