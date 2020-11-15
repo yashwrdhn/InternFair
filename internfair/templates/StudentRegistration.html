@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load widget_tweaks %}
 <html lang="en">
 
 <head>
@@ -47,26 +48,17 @@
   <div class="head">
     Register to participate in Internfair
   </div>
-  <form>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Name">
-    </div>
-    <div class="form-group">
-      <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="IITG Roll Number">
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Department">
+  <form  method='POST' action="{% url 'StudentRegistration' %}" id="student_form">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
       <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-      </div>
+            {% render_field field class="form-control" placeholder=field.label%}
+              {% for error in field.errors %}
+                <span style="color:red">{{ error }}</span>
+              {% endfor %}
+    {% endfor %}
       <div>
-        <button type="button" class="btn btn-primary btn-lg btn-block regn">Register</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block regn">Register</button>
       </div>
       <br>
   </form>

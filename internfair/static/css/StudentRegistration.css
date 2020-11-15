@@ -15,8 +15,8 @@ body{
 
 .navbar-brand{
     padding-left: 130px;
-    padding-top: 25px;
-    padding-bottom: 25px;   
+    padding-top: 10px;
+    padding-bottom: 10px;   
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -87,14 +87,14 @@ nav{
     width: 36% !important;
     margin-left: 32% !important;
     margin-right: 32% !important;
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     font-size: 14px !important;
     line-height: 16px !important;
     color: #484A52 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 22px !important;
     background: #EEF4FB !important;
     border-radius: 6px !important;
 }

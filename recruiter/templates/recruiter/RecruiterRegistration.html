@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load widget_tweaks %}
 <html lang="en">
   <head >
     <link rel="stylesheet" href="{% static 'css/RecruiterRegistration.css' %}">
@@ -32,28 +33,19 @@
       <div class="head">
         Register to participate in Internfair
       </div>
-      <form>
-        <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputName" placeholder="Company Name">
-        </div>
-        <div class="form-group">
-            <textarea class="form-control" id="exampleInputDescription" placeholder="Company Description"></textarea>
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputLocation" placeholder="Company Location">
-        </div>
+      <form method='POST' action="../recruiter/registration">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+          <div class="form-group">
+                {% render_field field class="form-control" placeholder=field.label%}
+                  {% for error in field.errors %}
+                    <span style="color:red">{{ error }}</span>
+                  {% endfor %}
+        {% endfor %}
         <div>
-            <button type="button" class="btn btn-primary btn-lg btn-block regn">Register</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block regn">Register</button>
         </div>
+        <br>
       </form>
       <div class="student"><a class="intern" href="{% url 'index' %}"> I am a Student</a></div>
 

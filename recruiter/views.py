@@ -7,9 +7,9 @@ def RecruiterLanding(request):
     template = "recruiter/RecruiterLanding.html"
     return render(request,template)
 
-def RecruiterRegistration(request):
-    template = "recruiter/RecruiterRegistration.html"
-    return render(request, template)
+# def RecruiterRegistration(request):
+#     template = "recruiter/RecruiterRegistration.html"
+#     return render(request, template)
 
 def AvailableInterns(request):
     template = "recruiter/AvailableInterns.html"
