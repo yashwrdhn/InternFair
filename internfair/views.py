@@ -14,7 +14,7 @@ def index(request):
 
 class StudentRegistration(CreateView):
     model = User
-    form_class = StudentsForm
+    form_class = StudentsForm()
     template_name = './StudentRegistration.html'
 
     def get_context_data(self, **kwargs):

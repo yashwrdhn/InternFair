@@ -4,12 +4,24 @@ from django.shortcuts import render
 
 
 def RecruiterLanding(request):
+
+    # if (request.POST):
+    #
     template = "recruiter/RecruiterLanding.html"
+    # email =
+
     return render(request,template)
+
+
+
+
+
+
 
 # def RecruiterRegistration(request):
 #     template = "recruiter/RecruiterRegistration.html"
 #     return render(request, template)
+
 
 def AvailableInterns(request):
     template = "recruiter/AvailableInterns.html"

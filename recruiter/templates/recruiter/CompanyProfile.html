@@ -18,8 +18,8 @@
 
      <div class="row mb-5 justify-content-between">
     <div class="col-md-6 pb-4 pb-md-0 highlight">
-      <a class="d-block d-lg-inline "  href="{% url 'recruiter:InternList' %}" >Active Forms |</a>
-      <a class="d-block d-lg-inline light-text"   href="{% url 'recruiter:shortlistedInterns' %}" >Deactivated Forms</a>
+      <a class="d-block d-lg-inline "  href="{% url 'recruiter:Profile' %}" >Active Forms |</a>
+      <a class="d-block d-lg-inline light-text"   href="#" >Deactivated Forms</a>
     </div>
     <div class="col-md-6 d-flex col-lg-4 flex-row-reverse align-items-start">
       <button class="btn btn-outline-custom">
@@ -34,7 +34,7 @@
   </div>
 
 
-<!--     <div class="container">-->
+     <div class="container">
 
 <!--          <div class="row myrow-2">-->
 <!--           <div class="col-md-9 col-sm-12 mycol-2">-->
@@ -58,7 +58,8 @@
 <!--            </form>-->
 <!--             </div>-->
 
-           </div>
+<!--           </div>-->
+
            <div class="row">
              <div class="col-1">
 
@@ -113,9 +114,9 @@
                 </div>
                   <div class="modal-body">
                     <label for="question1"  >APPLICANTS</label>
-                    <p>24</p>
+                    <p id="question1">24</p>
                     <label for="question2" >SHORTLISTED</label>
-                    <p >12</p>
+                    <p id="question2">12</p>
                   </div>
                 <div class="modal-footer">
                     <div class="footer">
