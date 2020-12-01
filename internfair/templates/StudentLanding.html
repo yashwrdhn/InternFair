@@ -49,9 +49,10 @@
                             <a class="recruiter" href="{% url 'recruiter:RecruiterLanding' %}">I am a recruiter</a>
                         </div>
                     </div>
-                    <form action="">
-                        <input type="text" placeholder="Email" class="input">
-                        <input type="text" placeholder="Password" class="input">
+                    <form method='POST' action="{% url 'StudentLogin' %}">
+                        {% csrf_token %}
+                        <input type="text" name='Username' placeholder="Username" class="input">
+                        <input type="password" name='Password' placeholder="Password" class="input">
                         <input type="submit" value="Login" class="login">
                     </form>
                     
@@ -63,8 +64,13 @@
                             <a class="recruiter" href="">Forgot Password?</a>
                         </div>
                     </div>
+                    
                 </div>
-                
+                {% if error %}
+                        <br>
+                        {{error}}
+                {% endif %}
+             
             
             </div>
             <div class="col-lg-7 order-lg-2 order-md-2 order-1 text-center col-md-6 col-12" id="intro"  >

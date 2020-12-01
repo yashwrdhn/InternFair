@@ -12,5 +12,6 @@ urlpatterns = [
     path('shortlist', views.ShortlistedInterns, name='shortlistedInterns'),
     path('profile', views.CompanyProfile, name='Profile'),
     path('preview', views.random_template, name='test_preview'),
+    path('login',stViews.startupLogin, name='StartupLogin'),
 
 ]
