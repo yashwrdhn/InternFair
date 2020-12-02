@@ -7,6 +7,8 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import AuthenticationForm
 from .models import User
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -25,7 +27,8 @@ class StudentRegistration(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('../profile')
+        return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+
 
 class StartUpsRegistration(CreateView):
     model = User
@@ -39,10 +42,12 @@ class StartUpsRegistration(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('../recruiter/profile')
+        return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
 
-def StudentProfile(request):
-    return render(request, "StudentProfile1.html")
+def StudentProfile(request,**kwargs):
+    current_user = request.user
+    stud_object = Students.objects.get(user=current_user)
+    return render(request, "StudentProfile1.html", {'student' : stud_object})
 
 def AvailableInternships(request):
     return render(request, "AvailableInternships.html")
@@ -56,7 +61,8 @@ def studentLogin(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return redirect('/student/profile')
+                return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+                # return redirect('/student/profile',kwargs={'pk': user.id})
             else:
                 return redirect('/',{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
         else:
@@ -73,6 +79,7 @@ def startupLogin(request):
         if user:
             if user.is_active:
                 login(request,user)
+                return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
                 return redirect('../recruiter/profile')
             else:
                 return redirect('../recruiter',{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})

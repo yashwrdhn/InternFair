@@ -24,6 +24,8 @@ class StartUps(models.Model):
     companyName = models.CharField(max_length=100, default="")
     contact = models.CharField(default="",max_length=10)
     logo = models.ImageField(upload_to=user_directory_path1,blank=True)
+    description = models.CharField(max_length=200, default="N/A")
+    location = models.CharField(max_length=100, default="N/A")
 
     def __str__(self):
         return self.user.username

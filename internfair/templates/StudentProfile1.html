@@ -52,11 +52,11 @@
       <div class="col-12 col-md-2 d-flex justify-content-center align-items-center"><img
           src="{% static 'image/test_image_ecell.jpg' %}" id="profileLogo"></div>
       <div class="col-md-4 pb-3 pb-md-0">
-        <h1 id="company-name">Ayush Aggarwal</h1>
+        <h1 id="company-name">{{student.name}}</h1>
         <div class="light-text" style="font-size: .75rem;">DEPARTMENT</div>
-        <p>Chemical Science And Technology</p>
+        <p>{{student.department}}</p>
         <div class="light-text" style="font-size: .75rem;">ROLL NUMBER</div>
-        <p>160103019</p>
+        <p>{{student.roll_number}}</p>
         <a href="#" style="color: #416EA8; font-size: .75rem;" onclick="openEditModal()">Edit Profile</a>
       </div>
 
@@ -427,7 +427,7 @@
 
   function cancelApplication(i) {
     alert("Application cancelled successfully");
-    window.location.replace("{%url 'StudentProfile'%}");
+    window.location.replace("{%url 'StudentProfile' student.id%}");
   }
 </script>
 

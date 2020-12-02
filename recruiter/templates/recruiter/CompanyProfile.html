@@ -18,8 +18,7 @@
 
      <div class="row mb-5 justify-content-between">
     <div class="col-md-6 pb-4 pb-md-0 highlight">
-      <a class="d-block d-lg-inline "  href="{% url 'recruiter:InternList' %}" >Active Forms |</a>
-      <a class="d-block d-lg-inline light-text"   href="{% url 'recruiter:shortlistedInterns' %}" >Deactivated Forms</a>
+      <a class="d-block d-lg-inline "  href="{% url 'recruiter:Profile' startup.id %}" >Active Forms</a>
     </div>
     <div class="col-md-6 d-flex col-lg-4 flex-row-reverse align-items-start">
       <button class="btn btn-outline-custom">
@@ -59,6 +58,7 @@
 <!--             </div>-->
 
            </div>
+         
            <div class="row">
              <div class="col-1">
 
