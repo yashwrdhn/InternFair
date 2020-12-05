@@ -106,6 +106,8 @@ def EditStudProfile(request, **kwargs):
 
 
 
+
+
 # if request.method=='POST':
 #         if request.POST['title'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
 #             product=Product()
