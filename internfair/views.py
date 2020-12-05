@@ -89,3 +89,44 @@ def startupLogin(request):
     else:
         return redirect('../recruiter')
 
+def EditStudProfile(request, **kwargs):
+    current_user = request.user
+    student = Students.objects.get(user=current_user)
+    if request.method=='POST':
+        if request.POST['roll_number']:
+            student.roll_number = request.POST['roll_number']
+        if request.POST['department']:
+            student.department = request.POST['department']
+        if request.POST['bio']:
+            student.bio = request.POST['bio']
+        student.save()
+    return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': current_user.id}))
+
+
+
+
+
+# if request.method=='POST':
+#         if request.POST['title'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
+#             product=Product()
+#             product.title= request.POST['title']
+#             product.body= request.POST['body']
+
+#             if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
+#                 product.url= request.POST['url']
+#             else:
+#                 product.url= 'http://' + request.POST['url']
+
+#             product.icon = request.FILES['icon']
+#             product.image = request.FILES['image']
+#             product.pub_date= timezone.datetime.now()
+#             product.hunter = request.user
+#             product.save()
+            
+
+#             return redirect('/products/'+str(product.id))
+#         else:
+#             return render(request, 'products/create.html', {'error':'All fields are required.'})
+
+#     else:
+#         return render(request, 'products/create.html')

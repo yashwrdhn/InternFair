@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('student/register/', views.StudentRegistration.as_view(), name='StudentRegistration'),
     path(r'^student/profile/(?P<pk>\d+)/$', views.StudentProfile, name='StudentProfile'),
+    path(r'^student/profile/edit/(?P<pk>\d+)/$', views.EditStudProfile, name='editStudentProfile'),
     path('student/availableInternships', views.AvailableInternships, name='AvailableInternships'),
     path('student/login', views.studentLogin, name='StudentLogin'),
 ]
