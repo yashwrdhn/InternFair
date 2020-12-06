@@ -8,7 +8,7 @@ urlpatterns = [
 
     path('', views.RecruiterLanding, name='RecruiterLanding'),
     path('registration', stViews.StartUpsRegistration.as_view(), name='RecruiterRegistration'),
-    path('interns', views.AvailableInterns, name='InternList'),
+    path('interns', views.intern_form, name='InternList'),
     path('shortlist', views.ShortlistedInterns, name='shortlistedInterns'),
     path('profile', views.CompanyProfile, name='Profile'),
     path('preview', views.random_template, name='test_preview'),

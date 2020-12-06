@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInternships.css' %}">
 
-  <title>Avalible interns</title>
+  <title>Available interns</title>
 </head>
 
 <body>
@@ -87,16 +87,129 @@
 
 
       <!-- First row -->
+<!--      <div class="row p-2 p-md-0 top" id="1" onclick="openApplyModal(1)">-->
+<!--        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img-->
+<!--            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"-->
+<!--            class="img-fluid"></div>-->
+<!--        <div class="col-auto col-md p-0 px-md-3">-->
+<!--          <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">-->
+<!--            <div class="col-md-3 padding">Google</div>-->
+<!--            <div class="col-md-3 padding">SDE</div>-->
+<!--            <div class="col-md-3 padding">Hyderabad</div>-->
+<!--            <div class="col-md-3 padding">75,000 INR</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Apply Modal with company summary &ndash;&gt;-->
+<!--      <div class="applyToCompany" id="modal1">-->
+<!--        <div class="card">-->
+<!--          <div class="upperpart">-->
+<!--            <div class="image">-->
+<!--              <img-->
+<!--                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"-->
+<!--                alt="loading..." id="image">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="name">-->
+<!--            <h1 style="width: fit-content;"> Google </h1><br>-->
+<!--          </div>-->
+<!--          <div class="left">-->
+<!--            <table>-->
+
+
+<!--              <div class="left">-->
+<!--                <div class="lead">-->
+<!--                  <p> PROFILE </p>-->
+<!--                </div>-->
+<!--                <div class="answer">-->
+<!--                  <p> Front-End Developer </p>-->
+<!--                </div>-->
+<!--                <div class="lead">-->
+<!--                  <p> LOCATION </p>-->
+<!--                </div>-->
+<!--                <div class="answer">-->
+<!--                  <p> Hyderabad </p>-->
+<!--                </div>-->
+<!--                <div class="lead">-->
+<!--                  <p> STIPEND </p>-->
+<!--                </div>-->
+<!--                <div class="answer">-->
+<!--                  <p> N/A </p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="right">-->
+<!--                <div class="lead">-->
+<!--                  <p>ALLOWANCES </p>-->
+<!--                </div>-->
+<!--                <div class="answer">-->
+<!--                  <p> N/A </p>-->
+<!--                </div>-->
+<!--                <div class="lead">-->
+<!--                  <p> REMARKS </p>-->
+<!--                </div>-->
+<!--                <div class="answer">-->
+<!--                  <p> You will be working from </p>-->
+<!--                  <p class="x">home.</p>-->
+<!--                  </p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="button">-->
+<!--                <ul class="ul">-->
+<!--                  <li>-->
+<!--                    <button type="button" onclick="openQuestionModal(1)" class="apply">Apply</button>-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </div>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Question Modal &ndash;&gt;-->
+<!--      <div class="questionModal" id="qModal1">-->
+<!--        <div class="quesCard">-->
+<!--          <div style="padding: 5%;">-->
+<!--            <div style="text-align: center;">-->
+<!--              <span class="heading">Internship Form</span><br><br>-->
+<!--            </div>-->
+
+<!--            <span class="sub-heading">Question for preliminary interview</span>-->
+<!--            <form action="">-->
+<!--              <br>-->
+<!--              <span class="Qheading">Question 1</span>-->
+<!--              <input type="text" class="input">-->
+<!--              <br><br>-->
+<!--              <span class="Qheading">Question 2</span>-->
+<!--              <input type="text" class="input">-->
+<!--              <br><br>-->
+<!--              <span class="Qheading">Question 3</span>-->
+<!--              <input type="text" class="input">-->
+<!--              <br><br>-->
+
+<!--            </form>-->
+<!--            <br>-->
+<!--            <div class="row align-items-center ">-->
+<!--              <div class="col-5 text-right"><a class="back" onclick="backModal(1)">Back</a></div>-->
+<!--              <div class="col-7 text-left"><button class="Publish" onclick="submitApplication(1)">Submit</button></div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+
+      <!-- First row -->
+      {% for intern in interns %}
       <div class="row p-2 p-md-0 top" id="1" onclick="openApplyModal(1)">
         <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
             class="img-fluid"></div>
         <div class="col-auto col-md p-0 px-md-3">
           <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-            <div class="col-md-3 padding">Google</div>
-            <div class="col-md-3 padding">SDE</div>
-            <div class="col-md-3 padding">Hyderabad</div>
-            <div class="col-md-3 padding">75,000 INR</div>
+            <div class="col-md-3 padding"> {{ intern.startup }}</div>
+            <div class="col-md-3 padding">{{ intern.profile }}</div>
+            <div class="col-md-3 padding">{{ intern.location }}</div>
+            <div class="col-md-3 padding">{{ intern.stipend }}</div>
           </div>
         </div>
       </div>
@@ -105,63 +218,37 @@
       <div class="applyToCompany" id="modal1">
         <div class="card">
           <div class="upperpart">
-            <div class="image">
-              <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="loading..." id="image">
-            </div>
+<!--            <div class="image"> <img  alt="loading..." id="image"> </div>-->
           </div>
-          <div class="name">
-            <h1 style="width: fit-content;"> Google </h1><br>
-          </div>
+          <div class="name"><h1 style="width: fit-content;"> {{ intern.startup }}</h1><br> </div>
           <div class="left">
             <table>
 
-
               <div class="left">
-                <div class="lead">
-                  <p> PROFILE </p>
-                </div>
-                <div class="answer">
-                  <p> Front-End Developer </p>
-                </div>
-                <div class="lead">
-                  <p> LOCATION </p>
-                </div>
-                <div class="answer">
-                  <p> Hyderabad </p>
-                </div>
-                <div class="lead">
-                  <p> STIPEND </p>
-                </div>
-                <div class="answer">
-                  <p> N/A </p>
-                </div>
+                <div class="lead"> <p> PROFILE </p> </div>
+                <div class="answer"><p> {{ intern.profile }} </p> </div>
+                 <div class="lead"> <p> LOCATION </p> </div>
+                <div class="answer"><p> {{ intern.location }} </p> </div>
+                 <div class="lead"> <p> STIPEND </p> </div>
+                <div class="answer"><p> {{ intern.stipend }} </p> </div>
+
               </div>
+
+
               <div class="right">
-                <div class="lead">
-                  <p>ALLOWANCES </p>
-                </div>
-                <div class="answer">
-                  <p> N/A </p>
-                </div>
-                <div class="lead">
-                  <p> REMARKS </p>
-                </div>
-                <div class="answer">
-                  <p> You will be working from </p>
-                  <p class="x">home.</p>
-                  </p>
-                </div>
+                <div class="lead"><p>ALLOWANCES </p> </div>
+                <div class="answer"> <p> N/A </p> </div>
+                <div class="lead"><p>REMARKS </p> </div>
+                <div class="answer"> <p> N/A </p> </div>
+
               </div>
+
+
               <div class="button">
-                <ul class="ul">
-                  <li>
-                    <button type="button" onclick="openQuestionModal(1)" class="apply">Apply</button>
-                  </li>
-                </ul>
+                <ul class="ul"><li><button type="button" onclick="openQuestionModal(1)" class="apply">Apply</button></li></ul>
               </div>
             </table>
+
           </div>
         </div>
       </div>
@@ -175,156 +262,44 @@
             </div>
 
             <span class="sub-heading">Question for preliminary interview</span>
-            <form action="">
+            <form action="" method="POST" >
+              {% csrf_token %}
               <br>
-              <span class="Qheading">Question 1</span>
-              <input type="text" class="input">
-              <br><br>
-              <span class="Qheading">Question 2</span>
-              <input type="text" class="input">
-              <br><br>
-              <span class="Qheading">Question 3</span>
-              <input type="text" class="input">
-              <br><br>
+<!--              <span class="Qheading">{{ intern.questions }}</span>-->
+<!--              <input type="text" class="input" name="questions">-->
+<!--              <br><br>-->
+              <input type="hidden"  name = "startup"  value='{{ intern.startup }}'>
+              <input type="hidden"  name = "profile"  value="{{ intern.profile }}">
+              {% for ques in intern.string_as_list  %}
 
-            </form>
+              <span class="Qheading">{{ ques }}</span>
+              <input type="text"  name = "answers" class="input">
+
+              <br><br>
+              {% endfor %}
+
+
+
             <br>
             <div class="row align-items-center ">
               <div class="col-5 text-right"><a class="back" onclick="backModal(1)">Back</a></div>
-              <div class="col-7 text-left"><button class="Publish" onclick="submitApplication(1)">Submit</button></div>
+<!--              <div class="col-7 text-left"><button class="Publish" onclick="submitApplication(1)">Submit</button></div>-->
+               <div class="col-7 text-left"><button class="Publish" >Submit</button></div>
             </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Second row (Later will be shown with for loop)-->
-      <div class="row p-2 p-md-0 top" id="2" onclick="openApplyModal(2)">
-        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX/ZgDa183y8u//7+n/WQDp5+H/////SgBi0OPiAAABH0lEQVR4nO3PCQ2EABAAMX78Oz4IORGzaR10Wadb1nOb7HyG27XPdW3vcL+Pqe79Gx7LVIdhnmGfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYd9/eB9T3d/w2ue63uG5TXY+w+l+h1EihcbqknUAAAAASUVORK5CYII="
-            class="img-fluid"></div>
-        <div class="col-auto col-md p-0 px-md-3">
-          <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-            <div class="col-md-3 padding">FaceBook</div>
-            <div class="col-md-3 padding">SDE</div>
-            <div class="col-md-3 padding">Hyderabad</div>
-            <div class="col-md-3 padding">70,000 INR</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Apply Modal with company summary -->
-      <div class="applyToCompany" id="modal2">
-        <div class="card">
-          <div class="upperpart">
-            <div class="image">
-              <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="loading..." id="image">
-            </div>
-          </div>
-          <div class="name">
-            <h1 style="width: fit-content;"> Facebook </h1><br>
-          </div>
-          <div class="left">
-            <table>
-
-
-              <div class="left">
-                <div class="lead">
-                  <p> PROFILE </p>
-                </div>
-                <div class="answer">
-                  <p> React Developer </p>
-                </div>
-                <div class="lead">
-                  <p> LOCATION </p>
-                </div>
-                <div class="answer">
-                  <p> Jaipur </p>
-                </div>
-                <div class="lead">
-                  <p> STIPEND </p>
-                </div>
-                <div class="answer">
-                  <p> 2 Lakh </p>
-                </div>
-              </div>
-              <div class="right">
-                <div class="lead">
-                  <p>ALLOWANCES </p>
-                </div>
-                <div class="answer">
-                  <p> N/A </p>
-                </div>
-                <div class="lead">
-                  <p> REMARKS </p>
-                </div>
-                <div class="answer">
-                  <p> You will be working from </p>
-                  <p class="x">home.</p>
-                  </p>
-                </div>
-              </div>
-              <div class="button">
-                <ul class="ul">
-                  <li>
-                    <button type="button" class="apply" onclick="openQuestionModal(2)">Apply</button>
-                  </li>
-                </ul>
-              </div>
-            </table>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Question Modal -->
-      <div class="questionModal" id="qModal2">
-        <div class="quesCard">
-          <div style="padding: 5%;">
-            <div style="text-align: center;">
-              <span class="heading">Internship Form</span><br><br>
-            </div>
-
-            <span class="sub-heading">Question for preliminary interview</span>
-            <form action="">
-              <br>
-              <span class="Qheading">Question 1</span>
-              <input type="text" class="input">
-              <br><br>
-              <span class="Qheading">Question 2</span>
-              <input type="text" class="input">
-              <br><br>
-              <span class="Qheading">Question 3</span>
-              <input type="text" class="input">
-              <br><br>
-
             </form>
-            <br>
-            <div class="row align-items-center ">
-              <div class="col-5 text-right"><a onclick="backModal(2)" class="back">Back</a></div>
-              <div class="col-7 text-left"><button class="Publish" onclick="submitApplication(2)">Submit</button></div>
-            </div>
           </div>
 
         </div>
       </div>
+
+      {% endfor %}
+      <!-- Second row (Later will be shown with for loop)-->
 
     </div>
 
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
+
   <script>
     function openApplyModal(i) {
       var modal = document.getElementById("modal" + i);
@@ -364,6 +339,20 @@
       alert("Application submitted successfully");
       window.location.replace("{%url 'StudentProfile'%}");
     }
+
+
+
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
   </script>
 
 

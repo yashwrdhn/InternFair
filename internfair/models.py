@@ -41,15 +41,7 @@ class Students(models.Model):
     def __str__(self):
         return self.user.username
 
-# class InternDetails(models.Model):
-#     startup = models.ForeignKey(StartUps, on_delete=models.CASCADE, related_name='intern_details')
-#     profile = models.CharField(max_length=50,blank=True)
-#     stipend = models.IntegerField(blank=True)
-#     location = models.CharField(max_length=50,blank=True)
-#     allowances = models.CharField(max_length=150,blank=True)
 
-#     def __str__(self):
-#         return str(self.startup.user) + '-' +self.profile
 
 # class  Application(models.Model):
 #     STATUSES = (

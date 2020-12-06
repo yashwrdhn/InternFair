@@ -4,9 +4,8 @@
 <html>
 
 <body>
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">btn1</button>/-->
-
+      <form method="POST">
+                        {% csrf_token %}
         <div class="modal fade " id="myModal"  role="dialog" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
                 <div class="modal-content ">
@@ -17,65 +16,29 @@
 
 
                             <h4>Company Bio</h4>
-<!--                             <div class="box">-->
-<!--                                <p>PROFILE</p>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <input type="text"><br>-->
-<!--                             </div>-->
-<!--                             <div class="box-2">-->
-<!--                                <p>LOCATION</p>-->
-<!--                                <a href="#">Kindly use full name. Eg:Mechanical Engineer</a>-->
-<!--                             </div>-->
-<!--                             <div class="form-control">-->
-<!--                                <input type="text"><br>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <p>STIPEND</p>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <input type="text"><br>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <p>ALLOWANCES</p>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <input type="text"><br>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <p>REMARKS</p>-->
-<!--                             </div>-->
-<!--                             <div class="box">-->
-<!--                                <input type="text"><br>-->
-<!--                             </div>-->
-
-<!--                            <div class="bottom">-->
-<!--                               <a href="#" class="btn btn-outline-primary"><u>Close</u></a>-->
-<!--                                <button class="btn btn-primary">Next</button>-->
-<!--                            </div>-->
-
-
+                     
                        <!----created new form ------------>
+
 
                     <label for="question1" class="question" >PROFILE</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question1" >
+                        <input type="text" class="form-control" id="question1" name="PROFILE">
                     </div>
                     <label for="question2" class="question">STIPEND</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question2">
+                        <input type="text" class="form-control" id="question2" name="STIPEND">
                     </div>
                     <label for="question3" class="question">LOCATION</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question3" >
+                        <input type="text" class="form-control" id="question3" name="LOCATION">
                     </div>
                     <label for="question4" class="question">ALLOWANCE</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question4" >
+                        <input type="text" class="form-control" id="question4" name="ALLOWANCE">
                     </div>
                     <label for="question5" class="question">REMARKS</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question5" >
+                        <input type="text" class="form-control" id="question5" name="REMARKS">
                     </div>
                 <div class="modal-footer mx-auto">
 
@@ -98,53 +61,53 @@
 
 
 
-<!--<button type="button"  data-toggle="modal" data-target="#myModal2">btn1</button>/-->
 
 
 
-    <div class="modal fade " id="myModal2"   >
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
-                <div class="modal-content ">
-                     <h2 class=" mx-auto">Internship Form</h2>
 
-                    <div class="modal-body">
-                        <div class="form-group">
-        <div class="">
-            <div style="padding: 5%;">
-                <div style="text-align: center;">
-                    <span class="heading">Internship Form</span><br><br>
+        <div class="modal fade " id="myModal2"   >
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                    <div class="modal-content ">
+                         <h2 class=" mx-auto">Internship Form</h2>
+
+                        <div class="modal-body">
+                            <div class="form-group">
+            <div class="">
+                <div style="padding: 5%;">
+                    <div style="text-align: center;">
+                        <span class="heading">Internship Form</span><br><br>
+                    </div>
+
+                    <span class="sub-heading">Question for preliminary interview</span>
+                   
+                        <br>
+                        <span class="Qheading">Question 1</span>
+                        <input type="text" class="input" name="Q1">
+                        <br><br>
+                        <span class="Qheading">Question 2</span>
+                        <input type="text" class="input" name="Q2">
+                        <br><br>
+                        <span class="Qheading">Question 3</span>
+                        <input type="text" class="input" name="Q3">
+                        <br><br>
+                        <button class="addQues">Add More Questions</button>
+
+                    <br>
+                        <br>
+                    <div class="row align-items-center ">
+                        <div class="col-5 text-right"><a href="#myModal"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
+                        <div class="col-7 text-left"><button class="Publish"><input type="submit" value="Publish"></button></div>
+                    </div>
+
                 </div>
 
-                <span class="sub-heading">Question for preliminary interview</span>
-                <form action="">
-                    <br>
-                    <span class="Qheading">Question 1</span>
-                    <input type="text" class="input">
-                    <br><br>
-                    <span class="Qheading">Question 2</span>
-                    <input type="text" class="input">
-                    <br><br>
-                    <span class="Qheading">Question 3</span>
-                    <input type="text" class="input">
-                    <br><br>
-                    <button class="addQues">Add More Questions</button>
-
-                <br>
-                    <br>
-                <div class="row align-items-center ">
-                    <div class="col-5 text-right"><a href="#myModal"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
-                    <div class="col-7 text-left"><button class="Publish">Publish</button></div>
-                </div>
-                     </form>
             </div>
-
         </div>
-    </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-    </div>
-
+        </div>
+ </form>
 
    {% include  "recruiter/js.html" %}
 

@@ -57,3 +57,5 @@ class ApplicationForm(forms.Form):
 
 class LogoForm(forms.Form):
     logo = forms.ImageField()
+
+    

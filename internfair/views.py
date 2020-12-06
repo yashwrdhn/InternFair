@@ -1,11 +1,12 @@
 from django.contrib.auth import login, logout,authenticate
 from django.shortcuts import redirect, render
 from django.views import View
-from internfair.forms  import *
-from internfair.models import *
+from .forms  import *
+from django.http import HttpResponse
 from django.views.generic import CreateView
 from django.contrib.auth.forms import AuthenticationForm
-from .models import User
+from .models import *
+from recruiter.models import *
 from django.contrib import messages
 
 # Create your views here.
@@ -15,7 +16,7 @@ def index(request):
 
 class StudentRegistration(CreateView):
     model = User
-    form_class = StudentsForm()
+    form_class = StudentsForm
     template_name = './StudentRegistration.html'
 
     def get_context_data(self, **kwargs):
@@ -25,7 +26,7 @@ class StudentRegistration(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('../profile')
+        return redirect('./profile')
 
 class StartUpsRegistration(CreateView):
     model = User
@@ -42,10 +43,13 @@ class StartUpsRegistration(CreateView):
         return redirect('../recruiter/profile')
 
 def StudentProfile(request):
-    return render(request, "StudentProfile1.html")
 
-def AvailableInternships(request):
-    return render(request, "AvailableInternships.html")
+    user = Students.objects.get(user=request.user)
+    print(user.department)
+    if user:
+        return render(request, "StudentProfile1.html",{'user':user})
+    else:
+        return HttpResponse("u r not logged in ")
 
 
 def studentLogin(request):
@@ -82,3 +86,26 @@ def startupLogin(request):
     else:
         return redirect('../recruiter')
 
+
+
+def AvailableInternships(request):
+    if request.method == "POST":
+        print(request.POST)
+        student = Students.objects.get(user=request.user)
+        startup = request.POST["startup"]
+        profile = request.POST["profile"]
+        internship = Intern_form.objects.filter(startup__companyName=startup ).get(profile=profile)
+        answers  = request.POST.getlist("answers")
+        print(internship.location)
+        app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers)
+        # app = [student.name,startup,profile,internship,answers]
+        print(app)
+        return redirect('./profile')
+
+    else:
+        available_internships = Intern_form.objects.all()
+
+        template = "AvailableInternships.html"
+        context = {'interns': available_internships}
+
+        return render(request, template, context)
