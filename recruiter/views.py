@@ -1,5 +1,12 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.http import HttpResponse
+=======
+from internfair.models import *
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+>>>>>>> d49772b1175349da8fe6dd1a48fe58720e202c20
 # Create your views here.
 from internfair.models import *
 from .models import *
@@ -22,19 +29,28 @@ def RecruiterLanding(request):
 #     template = "recruiter/RecruiterRegistration.html"
 #     return render(request, template)
 
+<<<<<<< HEAD
 
 def AvailableInterns(request):
+=======
+def AvailableInterns(request,**kwargs):
+>>>>>>> d49772b1175349da8fe6dd1a48fe58720e202c20
     template = "recruiter/AvailableInterns.html"
-    return render(request, template)
+    current_user = request.user
+    startup_object = StartUps.objects.get(user=current_user)
+    return render(request, template,{'startup': startup_object})
 
 def add_profiles(request):
     template = "recruiter/AvailableInterns.html"
     return render(request, template)
 
-def ShortlistedInterns(request):
+def ShortlistedInterns(request,**kwargs):
     template = "recruiter/ShortlistedInterns.html"
-    return render(request, template)
+    current_user = request.user
+    startup_object = StartUps.objects.get(user=current_user)
+    return render(request, template,{'startup': startup_object})
 
+<<<<<<< HEAD
 def CompanyProfile(request):
     
     profiles =  Intern_form.objects.all()
@@ -43,10 +59,31 @@ def CompanyProfile(request):
     template = "recruiter/CompanyProfile.html"
     return render(request, template, {'profiles' :profiles} )
 
+=======
+def CompanyProfile(request,**kwargs):
+    current_user = request.user
+    startup_object = StartUps.objects.get(user=current_user)
+    template = "recruiter/CompanyProfile.html"
+    return render(request, template,{'startup': startup_object})
+
+def EditStartupProfile(request, **kwargs):
+    current_user = request.user
+    startup = StartUps.objects.get(user=current_user)
+    if request.method=='POST':
+        if request.POST['companyName']:
+            startup.companyName = request.POST['companyName']
+        if request.POST['description']:
+            startup.description = request.POST['description']
+        if request.POST['location']:
+            startup.location = request.POST['location']
+        startup.save()
+    return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': current_user.id}))
+>>>>>>> d49772b1175349da8fe6dd1a48fe58720e202c20
 
 def random_template(request):
     return render(request,"recruiter/CompanyDetailsCard.html")
 
+<<<<<<< HEAD
 
 
 
@@ -70,3 +107,5 @@ def intern_form(request):
 
         template = "recruiter/AvailableInterns.html"
         return render(request, template)
+=======
+>>>>>>> d49772b1175349da8fe6dd1a48fe58720e202c20

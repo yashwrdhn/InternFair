@@ -51,14 +51,20 @@
     <div class="row" style="margin-top: 6rem;">
       <div class="col-12 col-md-2 d-flex justify-content-center align-items-center"><img
           src="{% static 'image/test_image_ecell.jpg' %}" id="profileLogo"></div>
-      <div class="col-md-4 pb-3 pb-md-0">
-        <h1 id="company-name">{{ user.name }}</h1>
+
+      <div class="col-md-6 pb-3 pb-md-0">
+        <h1 id="company-name">{{student.name}}</h1>
         <div class="light-text" style="font-size: .75rem;">DEPARTMENT</div>
-        <p>{{ user.department }}</p>
+        <p>{{student.department}}</p>
         <div class="light-text" style="font-size: .75rem;">ROLL NUMBER</div>
-        <p>{{ user.roll_number }}</p>
+        <p>{{student.roll_number}}</p>
+        <div class="light-text" style="font-size: .75rem;">BIO</div>
+        <p style='max-width:100%%;'>{{student.bio}}</p>
+
+
         <a href="#" style="color: #416EA8; font-size: .75rem;" onclick="openEditModal()">Edit Profile</a>
       </div>
+      
 
     </div>
     <hr class="line">
@@ -83,28 +89,29 @@
         </span>
 
         <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signin">
+        <form class="form-signin" method='POST' action="{% url 'editStudentProfile' student.id %}">
+        {% csrf_token %}
           <span id="reauth-email" class="reauth-email"></span>
           <label class="company-name" for="ROLL NUMBER">
             ROLL NUMBER
           </label>
-          <input type="text" id="ROLL NUMBER" class="form-control" required autofocus>
+          <input type="text" name="roll_number" id="ROLL NUMBER" value='{{student.roll_number}}' class="form-control">
           <label class="company-name" for="DEPARTMENT">
             DEPARTMENT
           </label>
-          <input type="text" id="DEPARTMENT" class="form-control" required>
+          <input type="text" name="department" value='{{student.department}}' id="DEPARTMENT" class="form-control">
           <span class="full">
-            <a href="#">
+
               Kindly use full name.Eg: Mechanical Engineering*. <br>
-            </a>
+            
           </span>
           <label class="company-name" for="BIO">
             BIO
           </label>
-          <input type="text" id="BIO" class="form-control" required>
+          <input type="text" value='{{student.bio}}' maxlength='500' name="bio" id="BIO" class="form-control">
 
           <div class="row align-items-center ">
-            <div class="col-lg-7 col-12 text-end Save"><button class="save">Save Changes</button></div>
+            <div class="col-lg-7 col-12 text-end Save"><button type='submit' class="save">Save Changes</button></div>
 
             <div class="col-12 col-lg-5 text-start No"><a class="no" onclick="closeEditModal()">No</a></div>
 
@@ -427,7 +434,7 @@
 
   function cancelApplication(i) {
     alert("Application cancelled successfully");
-    window.location.replace("{%url 'StudentProfile'%}");
+    window.location.replace("{%url 'StudentProfile' student.id%}");
   }
 </script>
 

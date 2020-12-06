@@ -36,22 +36,22 @@
              <button class=" btn btn-sm   btn-primary submit " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
              <input type='file' id="getFile" style="display:none">
         </div>
-            <label for="question1" class="question" class="ques">COMPANY NAME</label>
+            <label for="question1" class="question"  class="ques">COMPANY NAME</label>
             <div class="form-group">
-                <input type="text" class="form-control" id="question1" >
+                <input type="text" class="form-control" name='companyName' value={{startup.companyName}} id="question1" >
             </div>
             <label for="question2" class="question">COMPANY DESCRIPTION</label>
             <div class="form-group">
-                <input type="text" class="form-control" id="question2">
+                <input type="text" class="form-control" name='description' value={{startup.description}} id="question2">
             </div>
-            <label for="question3" class="question">COMPANY LOCATION</label>
+            <label for="question3" class="question">COMPANY </label>
             <div class="form-group">
-                <input type="text" class="form-control" id="question3" >
+                <input type="text" name='location' value={{startup.location}} class="form-control" id="question3" >
             </div>
         <div class="modal-footer mx-auto">
 
           <button type="button" class="btn btn-white back" data-dismiss="modal" >No</button>
-          <button type="button" class="btn btn-primary submit"  >Save Changes</button>
+          <button type="button" class="btn btn-primary submit" type='submit' >Save Changes</button>
 
         </div>
       </div>

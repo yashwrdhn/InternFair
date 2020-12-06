@@ -60,37 +60,31 @@
 <!--           </div>-->
 
            <p id="profile-name" class="profile-name-card"></p>
-           <form class="form-signin">
+           <form class="form-signin" method='POST' action="{% url 'editStartupProfile' startup.id %}">
+           {% csrf_token %}
              <button class=" uploadbtn" onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
              <input type='file' id="getFile" style="display:none">
                <span id="reauth-email" class="reauth-email"></span>
                <label class="company-name" for="company-name">
                     COMPANY NAME
                </label>
-               <input type="text" id="company-name" class="form-control" required autofocus>
+               <input type="text" name='companyName' value={{startup.companyName}} id="company-name" class="form-control" required autofocus>
                <label class="company-name" for="company-description">
                     COMPANY DESCRIPTION
                </label>
-               <input type="text" id="company-description" class="form-control" required>
+               <input type="text" name='description' value={{startup.description}} id="company-description" class="form-control" required>
                <label class="company-name" for="company-locations">
                     COMPANY LOCATION
                </label>
-               <input type="text" id="company-location" class="form-control" required>
+               <input type="text" name='location' value={{startup.location}} id="company-location" class="form-control" required>
 
-               <div class="form-group row">
-
-                   <div class="col col-md-4">
+               <div class="col col-md-4">
                      <button class="btn btn-sm smaller btn-btn-primary  mybtn" type="submit">Save Changes</button>
                    </div>
 
                    <div class="col col-sm-2">
-                     <button class="btn btn-sm smaller btn-link mybtn1" type="submit">No</button>
+                     <button class="btn btn-sm smaller btn-link mybtn1" >No</button>
                    </div>
-
-
-
-
-               </div>
 
 
 

@@ -20,7 +20,7 @@
   <nav class="navbar navbar-expand-md navbar-light fixed-top py-2 p-md-0" id="main-navbar">
     <div class="container d-flex" style="height: 100%;">
       <div class="col-4">
-        <span><a href="{% url 'recruiter:Profile' %}">Recruiter's page</a></span>
+        <span><a href="{% url 'recruiter:Profile' startup.id %}">Recruiter's page</a></span>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,10 +28,10 @@
       <div class="col collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav m-0 d-flex justify-content-around" style="width: 100%;">
           <li class="nav-item active py-md-2 curr-page-ul">
-            <a class="nav-link current-page" href="#">Dashboard<span class="sr-only">(current)</span></a>
+            <a class="nav-link current-page" href="{% url 'recruiter:Profile' startup.id %}">Dashboard<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active py-md-2">
-            <a class="nav-link" href="#">Internship Statistics</a>
+            <a class="nav-link" href="{% url 'recruiter:InternList' startup.id %}">Internship Statistics</a>
           </li>
           <li class="nav-item active py-md-2">
             <a class="nav-link" href="#">Contact Us</a>
@@ -48,15 +48,15 @@
   <div class="container">
     <div class="row" style="margin-top: 6rem;">
       <div class="col-12 col-md-2 d-flex justify-content-center align-items-center"><img src="https://demo.appcarvers.com/junite/media/com_easysocial/photos/1606/4686/google-logo-icon-png-transparent-background_thumbnail.png" id="logo"></div>
-    <div class="col-md-4 pb-3 pb-md-0">
-      <h1 id="company-name">Google</h1>
+    <div class="col-md-6 pb-3 pb-md-0">
+      <h1 id="company-name">{{startup.companyName}}</h1>
       <div class="light-text" style="font-size: .75rem;">COMPANY DESCRIPTION</div>
-      <p>AI startup Kolkata, researching on neural pathways.</p>
+      <p style='padding-right:10px'>{{startup.description}}</p>
       <div class="light-text" style="font-size: .75rem;">LOCATION</div>
-      <p>Kolkata</p>
+      <p>{{startup.location}}</p>
       <a href= "#edit_profile" data-toggle="modal"  style="color: #416EA8; font-size: .75rem;">Edit Profile</a>
     </div>
-    <div class="col-md-6 d-flex align-items-center">
+    <div class="col-md-4 d-flex align-items-center">
       <div>
         <p>Add a new internship position to start recruiting</p>
                 {% include "recruiter/CompanyDetailsCard.html" %}
@@ -72,7 +72,7 @@
   </div>
 
 
-   <!--- ---------------------------modal for edit profile ----------------------------------------->
+
    <div class="container">
              <div class="modal fade" id="edit_profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  " role="document">
@@ -83,30 +83,35 @@
                     </div>
 
                 </div>
-                <div class="prelim mx-auto">
+                <form method='POST' action="{% url 'recruiter:editStartupProfile' startup.id %}">
+                {% csrf_token %}
+                    <div class="prelim mx-auto">
                      <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
                         <img src="{% static 'image/p.png' %}" class="rounded-circle img-fluid" alt="">
                       </div>
-                     <button class=" btn btn-sm   btn-primary submit " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
+                      <div class='text-center'>
+                         <button class=" btn btn-sm   btn-primary submit " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
+                      </div>
                      <input type='file' id="getFile" style="display:none">
                 </div>
                     <label for="question1" class="question" >COMPANY NAME</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question1" >
+                        <input type="text" class="form-control" name='companyName' value='{{startup.companyName}}' id="question1" >
                     </div>
                     <label for="question2" class="question">COMPANY DESCRIPTION</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question2">
+                        <input type="text" name='description' maxlength='500' value='{{startup.description}}' class="form-control" id="question2">
                     </div>
                     <label for="question3" class="question">COMPANY LOCATION</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="question3" >
+                        <input type="text" name='location' value='{{startup.location}}' class="form-control" id="question3" >
                     </div>
-                <div class="modal-footer mx-auto">
-                    <button type="button" class="btn btn-primary "  >Save Changes</button>
+                <div class=" text-center" style='padding-bottom:10px'>
+                    <button type="submit" class="btn btn-primary "  >Save Changes</button>
                   <button type="button" class="btn btn-outline-primary " data-dismiss="modal" >No</button>
                 </div>
-
+                </form>
+  
               </div>
             </div>
           </div>

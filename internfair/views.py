@@ -8,6 +8,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import *
 from recruiter.models import *
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -26,7 +28,10 @@ class StudentRegistration(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('./profile')
+
+        return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+
+
 
 class StartUpsRegistration(CreateView):
     model = User
@@ -40,9 +45,14 @@ class StartUpsRegistration(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('../recruiter/profile')
+        return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
 
-def StudentProfile(request):
+
+def StudentProfile(request,**kwargs):
+    current_user = request.user
+    stud_object = Students.objects.get(user=current_user)
+    return render(request, "StudentProfile1.html", {'student' : stud_object})
+
 
     user = Students.objects.get(user=request.user)
     print(user.department)
@@ -60,7 +70,8 @@ def studentLogin(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return redirect('/student/profile')
+                return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+                # return redirect('/student/profile',kwargs={'pk': user.id})
             else:
                 return redirect('/',{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
         else:
@@ -77,6 +88,7 @@ def startupLogin(request):
         if user:
             if user.is_active:
                 login(request,user)
+                return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
                 return redirect('../recruiter/profile')
             else:
                 return redirect('../recruiter',{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
@@ -86,6 +98,7 @@ def startupLogin(request):
     else:
         return redirect('../recruiter')
 
+<<<<<<< HEAD
 
 
 def AvailableInternships(request):
@@ -109,3 +122,49 @@ def AvailableInternships(request):
         context = {'interns': available_internships}
 
         return render(request, template, context)
+
+
+
+def EditStudProfile(request, **kwargs):
+    current_user = request.user
+    student = Students.objects.get(user=current_user)
+    if request.method=='POST':
+        if request.POST['roll_number']:
+            student.roll_number = request.POST['roll_number']
+        if request.POST['department']:
+            student.department = request.POST['department']
+        if request.POST['bio']:
+            student.bio = request.POST['bio']
+        student.save()
+    return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': current_user.id}))
+
+
+
+
+
+
+
+# if request.method=='POST':
+#         if request.POST['title'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
+#             product=Product()
+#             product.title= request.POST['title']
+#             product.body= request.POST['body']
+
+#             if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
+#                 product.url= request.POST['url']
+#             else:
+#                 product.url= 'http://' + request.POST['url']
+
+#             product.icon = request.FILES['icon']
+#             product.image = request.FILES['image']
+#             product.pub_date= timezone.datetime.now()
+#             product.hunter = request.user
+#             product.save()
+            
+
+#             return redirect('/products/'+str(product.id))
+#         else:
+#             return render(request, 'products/create.html', {'error':'All fields are required.'})
+
+#     else:
+#         return render(request, 'products/create.html')

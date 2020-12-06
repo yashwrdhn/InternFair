@@ -25,6 +25,8 @@ class StartUps(models.Model):
     companyName = models.CharField(max_length=100, default="")
     contact = models.CharField(default="",max_length=10)
     logo = models.ImageField(upload_to=user_directory_path1,blank=True)
+    description = models.CharField(max_length=500, default="Edit Profile to add description")
+    location = models.CharField(max_length=100, default="Edit profile to add location")
 
     def __str__(self):
         return self.user.username
@@ -36,6 +38,7 @@ class Students(models.Model):
     department = models.CharField(max_length=50,default="")
     email = models.EmailField(max_length=150,default="")
     contact = models.CharField(default="",max_length=10)
+    bio = models.CharField(default="Edit Profile to add bio",max_length=500)
     profilePhoto = models.ImageField(upload_to=user_directory_path,blank=True)
     
     def __str__(self):
