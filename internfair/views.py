@@ -98,7 +98,7 @@ def startupLogin(request):
     else:
         return redirect('../recruiter')
 
-<<<<<<< HEAD
+
 
 
 def AvailableInternships(request):
