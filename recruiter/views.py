@@ -11,11 +11,8 @@ from internfair.models import *
 from .models import *
 def RecruiterLanding(request):
 
-    # if (request.POST):
-    #
-    template = "recruiter/RecruiterLanding.html"
-    # email =
 
+    template = "recruiter/RecruiterLanding.html"
     return render(request,template)
 
 
@@ -31,20 +28,34 @@ def RecruiterLanding(request):
 
 def AvailableInterns(request,**kwargs):
 
+    startup_object = StartUps.objects.get(user=request.user)
     template = "recruiter/AvailableInterns.html"
-    current_user = request.user
-    startup_object = StartUps.objects.get(user=current_user)
-    return render(request, template,{'startup': startup_object})
+
+    Applications = InternApplication.objects.filter(Internship__startup = startup_object)
+    context = {'startup': startup_object, 'app': Applications}
+
+    return render(request, template,context)
+
+
+
+def ShortlistedInterns(request,**kwargs):
+    startup_object = StartUps.objects.get(user=request.user)
+    template = "recruiter/ShortlistedInterns.html"
+    pk = kwargs['pk']
+    AllApplications = InternApplication.objects.filter(Internship__startup = startup_object)
+    Applications = InternApplication.objects.filter(Internship__startup = startup_object).filter(Intern_id = pk)
+    for intern in Applications:
+        print(intern.Status)
+        intern.Status = 'SHORTLISTED'
+        intern.save()
+    return render(request, template,{'startup': startup_object, 'app': AllApplications})
+
+
 
 def add_profiles(request):
     template = "recruiter/AvailableInterns.html"
     return render(request, template)
 
-def ShortlistedInterns(request,**kwargs):
-    template = "recruiter/ShortlistedInterns.html"
-    current_user = request.user
-    startup_object = StartUps.objects.get(user=current_user)
-    return render(request, template,{'startup': startup_object})
 
 
 def CompanyProfile(request,**kwargs):
