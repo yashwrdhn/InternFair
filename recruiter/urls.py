@@ -14,7 +14,8 @@ urlpatterns = [
     path(r'^profile/(?P<pk>\d+)/$', views.CompanyProfile, name='Profile'),
     path(r'^profile/edit/(?P<pk>\d+)/$', views.EditStartupProfile, name='editStartupProfile'),
 
-    path('preview', views.random_template, name='test_preview'),
+    path('form', views.intern_form, name='form_submit'),
     path('login',stViews.startupLogin, name='StartupLogin'),
+    path('logout',views.logout_view, name='StartupLogout'),
 
 ]

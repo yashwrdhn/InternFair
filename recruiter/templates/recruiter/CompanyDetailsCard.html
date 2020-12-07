@@ -4,7 +4,7 @@
 <html>
 
 <body>
-      <form method="POST">
+      <form method="POST" action="{% url 'recruiter:form_submit' %}">
                         {% csrf_token %}
         <div class="modal fade " id="myModal"  role="dialog" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
@@ -68,14 +68,14 @@
         <div class="modal fade " id="myModal2"   >
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
                     <div class="modal-content ">
-                         <h2 class=" mx-auto">Internship Form</h2>
+                            <h2 class="modal-header mx-auto">Internship Form</h2>
 
                         <div class="modal-body">
                             <div class="form-group">
             <div class="">
                 <div style="padding: 5%;">
                     <div style="text-align: center;">
-                        <span class="heading">Internship Form</span><br><br>
+
                     </div>
 
                     <span class="sub-heading">Question for preliminary interview</span>
@@ -90,13 +90,12 @@
                         <span class="Qheading">Question 3</span>
                         <input type="text" class="input" name="Q3">
                         <br><br>
-                        <button class="addQues">Add More Questions</button>
 
                     <br>
                         <br>
                     <div class="row align-items-center ">
                         <div class="col-5 text-right"><a href="#myModal"  class="back"  data-toggle="modal" data-dismiss="modal">Back</a></div>
-                        <div class="col-7 text-left"><button class="Publish"><input type="submit" value="Publish"></button></div>
+                        <div class="col-7 text-left"><input type="submit" class="Publish" value="Publish"></div>
                     </div>
 
                 </div>

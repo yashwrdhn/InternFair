@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInternships.css' %}">
 
-  <title>Available interns</title>
+  <title>Available internships</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <a class="nav-link hov" href="#">Contact Us</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link activa hov" href="#" style="color: #416EA8;">Log Out</a>
+            <a class="nav-link activa hov" href="{% url 'StudentLogout' %}" style="color: #416EA8;">Log Out</a>
           </li>
         </ul>
       </div>
@@ -72,8 +72,9 @@
 
       <!-- Table column heading -->
       <div class="row d-none d-md-flex" id="table-head">
-        <div class="col-md-auto profile-userpic padding"><img
-            src="https://www.htmlcsscolor.com/preview/128x128/FFFFFF.png" class="img-fluid"></div>
+        <div class="col-md-auto profile-userpic padding">
+            <img src="https://www.htmlcsscolor.com/preview/128x128/FFFFFF.png" class="img-fluid">
+        </div>
         <div class="col-md">
           <div class="row light-text">
             <div class="col padding">NAME</div>
@@ -200,10 +201,12 @@
 
       <!-- First row -->
       {% for intern in interns %}
-      <div class="row p-2 p-md-0 top" id="1" onclick="openApplyModal(1)">
-        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
-            class="img-fluid"></div>
+      <div class="row p-2 p-md-0 top" id="{{intern.id}}" onclick="openApplyModal({{intern.id}})">
+        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0">
+<!--          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"-->
+<!--            class="img-fluid">-->
+          <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="loading..." id="image">
+        </div>
         <div class="col-auto col-md p-0 px-md-3">
           <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
             <div class="col-md-3 padding"> {{ intern.startup }}</div>
@@ -215,10 +218,12 @@
       </div>
 
       <!-- Apply Modal with company summary -->
-      <div class="applyToCompany" id="modal1">
+      <div class="applyToCompany" id="modal{{intern.id}}">
         <div class="card">
           <div class="upperpart">
-<!--            <div class="image"> <img  alt="loading..." id="image"> </div>-->
+            <div class="image"> <img
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                alt="loading..." id="image"> </div>
           </div>
           <div class="name"><h1 style="width: fit-content;"> {{ intern.startup }}</h1><br> </div>
           <div class="left">
@@ -237,15 +242,15 @@
 
               <div class="right">
                 <div class="lead"><p>ALLOWANCES </p> </div>
-                <div class="answer"> <p> N/A </p> </div>
+                <div class="answer"> <p> {{ intern.allowances }} </p> </div>
                 <div class="lead"><p>REMARKS </p> </div>
                 <div class="answer"> <p> N/A </p> </div>
 
               </div>
 
 
-              <div class="button">
-                <ul class="ul"><li><button type="button" onclick="openQuestionModal(1)" class="apply">Apply</button></li></ul>
+              <div class="button ml-4">
+                <button type="button " onclick="openQuestionModal({{intern.id}})" class="apply  ">Apply</button>
               </div>
             </table>
 
@@ -254,7 +259,7 @@
       </div>
 
       <!-- Question Modal -->
-      <div class="questionModal" id="qModal1">
+      <div class="questionModal" id="qModal{{intern.id}}">
         <div class="quesCard">
           <div style="padding: 5%;">
             <div style="text-align: center;">
@@ -270,6 +275,7 @@
 <!--              <br><br>-->
               <input type="hidden"  name = "startup"  value='{{ intern.startup }}'>
               <input type="hidden"  name = "profile"  value="{{ intern.profile }}">
+              <input type="hidden"  name = "id"  value="{{ intern.id }}">
               {% for ques in intern.string_as_list  %}
 
               <span class="Qheading">{{ ques }}</span>
@@ -282,7 +288,7 @@
 
             <br>
             <div class="row align-items-center ">
-              <div class="col-5 text-right"><a class="back" onclick="backModal(1)">Back</a></div>
+              <div class="col-5 text-right"><a class="back" onclick="backModal({{intern.id}})">Back</a></div>
 <!--              <div class="col-7 text-left"><button class="Publish" onclick="submitApplication(1)">Submit</button></div>-->
                <div class="col-7 text-left"><button class="Publish" >Submit</button></div>
             </div>

@@ -13,4 +13,5 @@ urlpatterns = [
 
     path('student/availableInternships', views.AvailableInternships, name='AvailableInternships'),
     path('student/login', views.studentLogin, name='StudentLogin'),
+    path('student/logout', views.logout_view, name='StudentLogout'),
 ]

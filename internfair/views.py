@@ -49,17 +49,11 @@ class StartUpsRegistration(CreateView):
 
 
 def StudentProfile(request,**kwargs):
-    current_user = request.user
-    stud_object = Students.objects.get(user=current_user)
-    return render(request, "StudentProfile1.html", {'student' : stud_object})
-
 
     user = Students.objects.get(user=request.user)
-    print(user.department)
-    if user:
-        return render(request, "StudentProfile1.html",{'user':user})
-    else:
-        return HttpResponse("u r not logged in ")
+    registered_internships = InternApplication.objects.filter(Intern__id = user.pk)
+    print(registered_internships)
+    return render(request, "StudentProfile1.html",{'student':user,'interns':registered_internships})
 
 
 def studentLogin(request):
@@ -107,13 +101,14 @@ def AvailableInternships(request):
         student = Students.objects.get(user=request.user)
         startup = request.POST["startup"]
         profile = request.POST["profile"]
-        internship = Intern_form.objects.filter(startup__companyName=startup ).get(profile=profile)
+        id = request.POST['id']
+        internship = Intern_form.objects.get(pk=id)
         answers  = request.POST.getlist("answers")
         print(internship.location)
         app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers)
         # app = [student.name,startup,profile,internship,answers]
         print(app)
-        return redirect('./profile')
+        return redirect('StudentProfile')
 
     else:
         available_internships = Intern_form.objects.all()
@@ -168,3 +163,7 @@ def EditStudProfile(request, **kwargs):
 
 #     else:
 #         return render(request, 'products/create.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect( 'index')

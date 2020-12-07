@@ -10,7 +10,7 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/studentprofile.css' %}">
-
+<!---->
   <title>Available interns</title>
 </head>
 
@@ -38,7 +38,7 @@
             <a class="nav-link" href="#">Contact Us</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#" style="color: #416EA8;">Log Out</a>
+            <a class="nav-link" href=" {% url 'StudentLogout' %}" style="color: #416EA8;">Log Out</a>
           </li>
         </ul>
       </div>
@@ -148,6 +148,7 @@
 
 
     <!-- If internship not applied -->
+    {% if not  interns %}
     <div class="applied">
       <p>You haven't applied to any companies yet. Start by looking at<br>company's requirements</p>
       <a class="btn btn-primary btn-lg" href="{% url 'AvailableInternships'%}" role="button"
@@ -156,7 +157,7 @@
     </div>
 
     <br><br>
-
+    {% else  %}
     <!-- If internships applied -->
     <div class="little-center-table">
 
@@ -175,89 +176,60 @@
         </div>
       </div>
 
-
+      {% for intern in interns %}
       <!-- Row 1 -->
-      <div class="row p-2 p-md-0 top" style="margin-left: 15px;" id="1" onclick="openSummaryModal(1)">
-        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
-            class="img-fluid"></div>
+      <div class="row p-2 p-md-0 top" style="margin-left: 15px;" id="{{intern.id}}" onclick="openSummaryModal({{intern.id}})">
+       <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0">
+<!--          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"-->
+<!--            class="img-fluid">-->
+          <img class="img-fluid" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="loading...">
+        </div>
         <div class="col-auto col-md p-0 px-md-3">
           <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-            <div class="col-md-3 padding">Google</div>
-            <div class="col-md-3 padding">SDE</div>
-            <div class="col-md-3 padding">Hyderabad</div>
-            <div class="col-md-3 padding">75,000 INR</div>
+            <div class="col-md-3 padding">{{ intern.Internship.startup }}</div>
+            <div class="col-md-3 padding">{{  intern.Internship.profile }}</div>
+            <div class="col-md-3 padding">{{  intern.Internship.location }}</div>
+            <div class="col-md-3 padding">{{  intern.Internship.stipend }}</div>
           </div>
         </div>
       </div>
 
       <!-- Modal containing application summary and option for cancel -->
-      <div class="applicationSummary" id="modal1">
+      <div class="applicationSummary" id="modal{{intern.id}}">
         <div class="card">
           <div class="upperpart">
             <div class="image">
-              <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="loading..." id="image">
+              <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="loading..." id="image">
             </div>
           </div>
-          <div class="name">
-            <h1 style="width: fit-content;"> Google </h1><br>
-          </div>
+          <div class="name"><h1 style="width: fit-content;"> {{ intern.Internship.startup }}</h1><br></div>
           <div class="left">
             <table>
-
-
               <div class="left">
-                <div class="lead">
-                  <p> PROFILE </p>
-                </div>
-                <div class="answer">
-                  <p> Front-End Developer </p>
-                </div>
-                <div class="lead">
-                  <p> LOCATION </p>
-                </div>
-                <div class="answer">
-                  <p> Hyderabad </p>
-                </div>
-                <div class="lead">
-                  <p> STIPEND </p>
-                </div>
-                <div class="answer">
-                  <p> N/A </p>
-                </div>
+                <div class="lead"><p> PROFILE </p></div>
+                <div class="answer"><p>{{  intern.Internship.profile }}</p></div>
+                <div class="lead"><p> LOCATION </p></div>
+                <div class="answer"><p> {{  intern.Internship.location }} </p></div>
+                <div class="lead"><p> STIPEND </p></div>
+                <div class="answer"><p> {{  intern.Internship.stipend }} </p></div>
               </div>
               <div class="right">
-                <div class="lead">
-                  <p>ALLOWANCES </p>
-                </div>
-                <div class="answer">
-                  <p> N/A </p>
-                </div>
-                <div class="lead">
-                  <p> REMARKS </p>
-                </div>
-                <div class="answer">
-                  <p> You will be working from </p>
-                  <p class="x">home.</p>
-                  </p>
-                </div>
+                <div class="lead"><p>ALLOWANCES </p></div>
+                <div class="answer"><p>{{ intern.Internship.allowances }}</p></div>
+                <div class="lead"><p> REMARKS </p></div>
+                <div class="answer"><p> {{ intern.Internship.remarks  }}.</p></div>
               </div>
-              <div class="button">
-                <ul class="ul">
-                  <li>
-                    <button type="button" onclick="openConfirmModal(1)" class="apply">Cancel Application</button>
-                  </li>
-                </ul>
+              <div class="button ml-3">
+              <button type="button" onclick="openConfirmModal({{intern.id}})" class="apply">Cancel Application</button>
               </div>
             </table>
+
           </div>
         </div>
       </div>
 
       <!-- Modal for confirming cancellation -->
-      <div class="confirmCard" id="cModal1">
+      <div class="confirmCard" id="cModal{{intern.id}}">
         <div class="confirmModal">
           <div class="row justify-content-center" style="width: 100%;">
             <div class=" col-12 col-sm-8 col-xl-6 bg-light d-flex justify-content-center"
@@ -265,120 +237,22 @@
               <div class="col-12 col-md-10 col-lg-9 col-xl-8 card-body text-center card-text">
                 <img src="https://c7.uihere.com/files/557/90/534/google-logo-g-suite-google.jpg" id="logo">
                 <p class="m-0">Are you sure that you want to cancel your application for internship in</p>
-                <p id="company">Google</p>
-                <a href="#" class="btn btn-custom py-1 px-3" onclick="cancelApplication(1)">Yes</a>
+                <p id="company">{{ intern.Internship.startup }}</p>
+                <a href="#" class="btn btn-custom py-1 px-3" onclick="cancelApplication({{intern.id}})">Yes</a>
                 <a href="#" class="btn py-1 px-3" style="color: #416EA8; text-decoration: underline; outline: none;"
-                  onclick="backModal(1)">No</a>
+                  onclick="backModal({{intern.id}})">No</a>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+{% endfor %}
+ {% endif %}
 
 
-      <!-- Row 2 (Will use for loop later) -->
-      <div class="row p-2 p-md-0 top" id="2" style="margin-left: 15px;" onclick="openSummaryModal(2)">
-        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX/ZgDa183y8u//7+n/WQDp5+H/////SgBi0OPiAAABH0lEQVR4nO3PCQ2EABAAMX78Oz4IORGzaR10Wadb1nOb7HyG27XPdW3vcL+Pqe79Gx7LVIdhnmGfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYZ9hn2GfYd9/eB9T3d/w2ue63uG5TXY+w+l+h1EihcbqknUAAAAASUVORK5CYII="
-            class="img-fluid"></div>
-        <div class="col-auto col-md p-0 px-md-3">
-          <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
-            <div class="col-md-3 padding">FaceBook</div>
-            <div class="col-md-3 padding">SDE</div>
-            <div class="col-md-3 padding">Hyderabad</div>
-            <div class="col-md-3 padding">70,000 INR</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Modal containing application summary and option for cancel -->
-      <div class="applicationSummary" id="modal2">
-        <div class="card">
-          <div class="upperpart">
-            <div class="image">
-              <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="loading..." id="image">
-            </div>
-          </div>
-          <div class="name">
-            <h1 style="width: fit-content;"> Facebook </h1><br>
-          </div>
-          <div class="left">
-            <table>
-
-
-              <div class="left">
-                <div class="lead">
-                  <p> PROFILE </p>
-                </div>
-                <div class="answer">
-                  <p> React Developer </p>
-                </div>
-                <div class="lead">
-                  <p> LOCATION </p>
-                </div>
-                <div class="answer">
-                  <p> Hyderabad </p>
-                </div>
-                <div class="lead">
-                  <p> STIPEND </p>
-                </div>
-                <div class="answer">
-                  <p> 50000 </p>
-                </div>
-              </div>
-              <div class="right">
-                <div class="lead">
-                  <p>ALLOWANCES </p>
-                </div>
-                <div class="answer">
-                  <p> N/A </p>
-                </div>
-                <div class="lead">
-                  <p> REMARKS </p>
-                </div>
-                <div class="answer">
-                  <p> You will be working from </p>
-                  <p class="x">home.</p>
-                  </p>
-                </div>
-              </div>
-              <div class="button">
-                <ul class="ul">
-                  <li>
-                    <button type="button" onclick="openConfirmModal(1)" class="apply">Cancel Application</button>
-                  </li>
-                </ul>
-              </div>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal for confirming cancellation -->
-      <div class="confirmCard" id="cModal2">
-        <div class="card">
-          <div class="row justify-content-center" style="width: 100%;">
-            <div class=" col-12 col-sm-8 col-xl-6 bg-light d-flex justify-content-center"
-              style="border-radius: 1rem !important">
-              <div class="col-12 col-md-10 col-lg-9 col-xl-8 card-body text-center card-text">
-                <img src="https://c7.uihere.com/files/557/90/534/google-logo-g-suite-google.jpg" id="logo">
-                <p class="m-0">Are you sure that you want to cancel your application for internship in</p>
-                <p id="company">FaceBook</p>
-                <a href="#" class="btn btn-custom py-1 px-3" onclick="cancelApplication(2)">Yes</a>
-                <a href="#" class="btn py-1 px-3" style="color: #416EA8; text-decoration: underline; outline: none;"
-                  onclick="backModal(2)">No</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
-  </div>
+    </div>
+
 
 </body>
 

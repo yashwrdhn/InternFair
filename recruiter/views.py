@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,redirect
+from django.contrib.auth import login, logout,authenticate
 from django.http import HttpResponse
 from internfair.models import *
 from django.http import HttpResponseRedirect
@@ -49,9 +49,11 @@ def ShortlistedInterns(request,**kwargs):
 
 def CompanyProfile(request,**kwargs):
     current_user = request.user
+
     startup_object = StartUps.objects.get(user=current_user)
+    profiles = Intern_form.objects.filter(startup_id = startup_object.id)
     template = "recruiter/CompanyProfile.html"
-    return render(request, template,{'startup': startup_object})
+    return render(request, template,{'startup': startup_object,'profiles':profiles})
 
 def EditStartupProfile(request, **kwargs):
     current_user = request.user
@@ -85,13 +87,15 @@ def intern_form(request):
         location = request.POST["LOCATION"]
         questions =  { request.POST["Q1"],request.POST["Q2"],request.POST["Q3"] }
 
-        form = Intern_form.objects.create(startup = startup,stipend=stipend,allowances=allowances,location=location,questions=questions)
+        form = Intern_form.objects.create(startup = startup,profile=profile,stipend=stipend,allowances=allowances,location=location,questions=questions)
         form.save()
         print(form)
-        return HttpResponse("done")
+        return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': request.user.id}))
 
-    else :
 
-        template = "recruiter/AvailableInterns.html"
-        return render(request, template)
+
+def logout_view(request):
+    logout(request)
+    return redirect('recruiter:RecruiterLanding')
+
 

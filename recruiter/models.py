@@ -28,5 +28,8 @@ class InternApplication(models.Model):
     status = { (1,'PENDING'),(2,'SHORTLISTED'),(0,'REJECTED')}
     Intern = models.ForeignKey(Students,on_delete=models.CASCADE)
     Internship = models.ForeignKey(Intern_form,on_delete = models.CASCADE)
-    Status = models.CharField(max_length=20,choices=status,default='PENDING')
+    Status = models.CharField(max_length=20,choices=status,default=1)
     Answers = models.TextField(max_length=200)
+
+    def __str__(self):
+        return '{}-{}'.format(self.Intern,self.Internship)
