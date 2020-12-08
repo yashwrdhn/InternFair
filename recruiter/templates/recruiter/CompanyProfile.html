@@ -87,7 +87,7 @@
 
 
          {% for p in profiles %}
-         <a href="#{{ startup.companyName }}{{p.id}}" data-toggle="modal">
+         <a href="#model{{p.id}}" data-toggle="modal">
          <div class="row"  >
              <div class="col-1"  ></div>
               <div class="col-3">   <span >{{ p.profile }}</span>  </div>
@@ -100,7 +100,7 @@
 
 
         <!-- Modal -->
-          <div class="modal fade" id="{{ startup.companyName }}{{p.id}}"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="model{{p.id}}"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
