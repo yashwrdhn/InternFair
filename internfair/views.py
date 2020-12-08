@@ -167,3 +167,17 @@ def EditStudProfile(request, **kwargs):
 def logout_view(request):
     logout(request)
     return redirect( 'index')
+
+
+def delete_app(request,**kwargs):
+    print(kwargs)
+    id = kwargs['pk']
+    student = Students.objects.get(user = request.user)
+    print(student)
+    intern_app = InternApplication.objects.get(pk = id)
+    intern_app.delete()
+
+    print(intern_app)
+
+
+    return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': student.id}))

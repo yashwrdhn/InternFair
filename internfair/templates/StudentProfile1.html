@@ -240,7 +240,7 @@
                 <img src="https://c7.uihere.com/files/557/90/534/google-logo-g-suite-google.jpg" id="logo">
                 <p class="m-0">Are you sure that you want to cancel your application for internship in</p>
                 <p id="company">{{ intern.Internship.startup }}</p>
-                <a href="#" class="btn btn-custom py-1 px-3" onclick="cancelApplication({{intern.id}})">Yes</a>
+                <a href="{% url 'delete_app' intern.id %}" class="btn btn-custom py-1 px-3" onclick="cancelApplication({{intern.id}})">Yes</a>
                 <a href="#" class="btn py-1 px-3" style="color: #416EA8; text-decoration: underline; outline: none;"
                   onclick="backModal({{intern.id}})">No</a>
               </div>
@@ -308,10 +308,6 @@
     }
   }
 
-  function cancelApplication(i) {
-    alert("Application cancelled successfully");
-    window.location.replace("{%url 'StudentProfile' student.id%}");
-  }
 </script>
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

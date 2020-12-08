@@ -8,6 +8,8 @@ class Intern_form(models.Model):
     location = models.CharField(max_length=50,blank=True)
     allowances = models.CharField(max_length=150,blank=True)
     questions = models.TextField(max_length=200)
+    status = { ('ACTIVE','ACTIVE'),('DEACTIVE','DEACTIVE')}
+    FormStatus = models.CharField(max_length=10,choices=status,default='ACTIVE')
 
     def string_as_list(self):
         # print(self.questions)
@@ -19,7 +21,7 @@ class Intern_form(models.Model):
 
 
     def __str__(self):
-        return self.profile
+        return f'{self.startup}-{self.profile}'
 
 
 
