@@ -12,11 +12,13 @@ class Intern_form(models.Model):
     FormStatus = models.CharField(max_length=10,choices=status,default='ACTIVE')
 
     def string_as_list(self):
-        # print(self.questions)
-        ques = self.questions.strip('{}')
-        # print(ques)
-        ques =  ques.split(',')
-        # print(ques)
+        print(self.questions)
+        ques = self.questions.split(',')
+        print(ques)
+        for q in ques:
+            if q == '':
+                ques.remove(q)
+        print(ques)
         return ques
 
 
@@ -50,10 +52,16 @@ class InternApplication(models.Model):
         len(ans_list)
         # print(len)
         # print(self.questions)
-        ques = self.Internship.questions.strip('{}')
+        ques = self.Internship.questions
         # print(ques)
         ques_list = ques.split(',')
         # print(ques)
+        print(ques)
+        for q in ques_list:
+            if q == '':
+                ques_list.remove(q)
+        print(ques_list)
+
         QnA = dict(zip(ques_list,ans_list))
         return QnA
 

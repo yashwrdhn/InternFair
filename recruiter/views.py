@@ -105,7 +105,7 @@ def intern_form(request):
         stipend = request.POST["STIPEND"]
         allowances = request.POST["ALLOWANCE"]
         location = request.POST["LOCATION"]
-        questions =  { request.POST["Q1"],request.POST["Q2"],request.POST["Q3"] }
+        questions =  f'{request.POST["Q1"]},{request.POST["Q2"]},{request.POST["Q3"]}'
 
         form = Intern_form.objects.create(startup = startup,profile=profile,stipend=stipend,allowances=allowances,location=location,questions=questions)
         form.save()

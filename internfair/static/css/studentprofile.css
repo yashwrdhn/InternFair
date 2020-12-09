@@ -460,11 +460,8 @@ edit profile modal css ends */
   /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
+
+  overflow: column;
   /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
   /* Fallback color */
@@ -504,6 +501,8 @@ edit profile modal css ends */
   color: #212121;
   font-weight: 600;
   font-family: GT Walsheim Pro;
+
+
 }
 
 #image {
@@ -532,8 +531,12 @@ edit profile modal css ends */
   line-height: 18px;
   color: #212121;
   transform: translateY(-15px);
+
 }
 
+.answer p {
+    word-wrap: break-word !important;
+    }
 .lead {
 
   font-style: normal;
@@ -567,6 +570,9 @@ edit profile modal css ends */
 .x {
   transform: translateY(-13px);
 }
+
+
+
 
 /* Application Summary modal ends */
 
