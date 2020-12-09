@@ -36,17 +36,17 @@
 
 
          {% for p in profiles %}
-             <div class="row p-2 p-md-0 " >
+             <div class="row p-2 p-md-0 top" >
              <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-             <div class="col-auto col-md p-0 px-md-3 top" data-target="#model{{p.id}}" data-toggle="modal">
+             <div class="col-auto col-md p-0 px-md-3 " data-target="#model{{p.id}}" data-toggle="modal">
                <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
 
 
                    <!--a href="#model{{ intern.id }}" data-toggle="modal"-->
                      <div class="col-md-3 padding">{{ p.profile }}</div>
-                     <div class="col-md-3 padding">{{p.stipend}}</div>
+                     <div class="col-md-3 padding">{{p.stipend}} INR</div>
                      <div class="col-md-3 padding">{{p.location}}</div>
-                     <div class="col-md-3 padding">-</div>
+                     <div class="col-md-3 padding">{{ p.Applicant_count }}</div>
 
                </div>
              </div>
