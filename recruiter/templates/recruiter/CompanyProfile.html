@@ -4,13 +4,6 @@
 <html lang="en">
   <head>
     <title>{% block title %}Company Profile {% endblock %}</title>
-    {% block stylesheets %}
-<!--    <link rel="stylesheet" href="{% static 'recruiter/css/theme_config.css' %}">-->
-<!--    <link href="recruiter/css-circular-prog-bar.css" rel="stylesheet">-->
-<!--    <link rel="stylesheet" href="{% static 'css/CompanyProfile.css' %}">-->
-    <!--  <link rel="stylesheet" href="{% static 'css/InternAnswerCard.css' %}" >-->
-
-      {% endblock stylesheets %}
   </head>
   <body>
 
@@ -24,40 +17,7 @@
 
 
 
-<!--     <div class="container">-->
 
-<!--          <div class="row myrow-2">-->
-<!--           <div class="col-md-9 col-sm-12 mycol-2">-->
-<!--           <a href="#" id="left">Active Forms |</a>-->
-<!--           -->
-
-<!--           <a href="#" id="right"> Deactivated Forms</a>-->
-<!--           </div>-->
-<!--           <div class="col-md-2 col-sm-12">-->
-<!--            <form action="/hms/accommodations" method="GET"> -->
-<!--              -->
-<!--                  <div class="input-group">-->
-<!--                    <input type="text" class="form-control" placeholder="Search" id="txtSearch"/>-->
-<!--                    <div class="input-group-btn">-->
-<!--                      <button class="btn btn-primary" type="submit">-->
-<!--                        <span class="glyphicon glyphicon-search"></span>-->
-<!--                      </button>-->
-<!--                   -->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--             </div>-->
-
-<!--           </div>-->
-<!--         -->
-<!--           <div class="row">-->
-<!--             <div class="col-1">-->
-
-<!--             </div>-->
-<!--              <div class="col-3">-->
-<!--                  <span style="color:#adadad ">PROFILE</span>-->
-<!--              </div>-->
-<!--              <div class="col-3">-->
 
 
      <div class="container">
@@ -74,19 +34,11 @@
                </div>
              </div>
 
-            <!--div class="row">
-             <div class="col-1"> </div>
-              <div class="col-3">   <span style="color:#adadad ">PROFILE</span>  </div>
-              <div class="col-3">  <span style="color:#adadad  ">STIPEND</span>   </div>
-              <div class="col-3"><span style="color:#adadad  ">LOCATION</span>    </div>
-              <div class="col-2">   <span style="color:#adadad  ">APPLICANTS</span>  </div>
-            </div>
-            <div class="row"> <div class="col-1"> <span class="dot green"></span>  </div>   </div-->
 
          {% for p in profiles %}
              <div class="row p-2 p-md-0 " >
              <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
-             <div class="col-auto col-md p-0 px-md-3 top" data-target="#{{ startup.companyName }}{{p.id}}" data-toggle="modal">
+             <div class="col-auto col-md p-0 px-md-3 top" data-target="#model{{p.id}}" data-toggle="modal">
                <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
 
 
@@ -99,21 +51,11 @@
                </div>
              </div>
            </div>
-         <!--div class="top">
-         <div href="#{{ startup.companyName }}{{p.id}}" data-toggle="modal">
-         <div class="row "  >
-             <div class="col-1"></div>
-              <div class="col-3">   <span >{{ p.profile }}</span>  </div>
-              <div class="col-3">  <span >{{p.stipend}}</span>   </div>
-              <div class="col-3"><span>{{p.location}}</span>    </div>
-              <div class="col-2">   <span >-</span>  </div>
-            </div>
-             </div>
-            </div-->
+
 
 
         <!-- Modal -->
-          <div class="modal fade" id="{{ startup.companyName }}{{p.id}}"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="model{{p.id}}"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -126,17 +68,15 @@
                 </div>
                   <div class="modal-body">
                     <label for="question1"  >APPLICANTS</label>
-                    <p id="question1">24</p>
+                    <p id="question1">{{ p.Applicant_count }}</p>
                     <label for="question2" >SHORTLISTED</label>
-                    <p id="question2">12</p>
+                    <p id="question2">{{ p.Shortlisted_count }}</p>
                   </div>
-                <div class="modal-footer">
-                    <div class="footer">
-                  <button type="button" class="btn btn-outline-primary " data-dismiss="modal" >Deactivate form</button>
-                  <button type="button" class="btn btn-primary "  >Edit form</button>
-                    </div>
-
+                <div class="modal-footer mx-auto">
+                  <a href="{% url 'recruiter:deactivate' p.id %}" type="button" class="btn btn-outline-primary "  >Deactivate form</a>
                 </div>
+
+
               </div>
             </div>
           </div>

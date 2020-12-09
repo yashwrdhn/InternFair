@@ -23,7 +23,14 @@ class Intern_form(models.Model):
     def __str__(self):
         return f'{self.startup}-{self.profile}'
 
-
+    def Applicant_count(self):
+        available = InternApplication.objects.filter(Internship__startup=self.startup).filter(Internship__profile=self.profile).filter(
+            Status="PENDING").count()
+        return available
+    def Shortlisted_count(self):
+        shortlisted = InternApplication.objects.filter(Internship__startup=self.startup).filter(Internship__profile=self.profile).filter(
+            Status="SHORTLISTED").count()
+        return shortlisted
 
 
 class InternApplication(models.Model):

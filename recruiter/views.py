@@ -9,16 +9,11 @@ from django.urls import reverse
 # Create your views here.
 from internfair.models import *
 from .models import *
+
+
 def RecruiterLanding(request):
-
-
     template = "recruiter/RecruiterLanding.html"
     return render(request,template)
-
-
-
-
-
 
 
 # def RecruiterRegistration(request):
@@ -67,10 +62,8 @@ def CompanyProfile(request,**kwargs):
     current_user = request.user
     startup_object = StartUps.objects.get(user=current_user)
     profiles = Intern_form.objects.filter(startup_id = startup_object.id).filter(FormStatus = 'ACTIVE')
-    available = InternApplication.objects.filter(Internship__startup = startup_object).filter(Status="PENDING").count()
-    shortlisted = InternApplication.objects.filter(Internship__startup = startup_object).filter(Status="SHORTLISTED").count()
     template = "recruiter/CompanyProfile.html"
-    return render(request, template,{'startup': startup_object,'profiles':profiles,'available':available,'shortlisted':shortlisted})
+    return render(request, template,{'startup': startup_object,'profiles':profiles})
 
 
 def DeactivateForm(request,pk):
@@ -83,6 +76,7 @@ def DeactivateForm(request,pk):
     form.FormStatus = 'DEACTIVE'
     form.save()
     return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': request.user.id}))
+
 
 def EditStartupProfile(request, **kwargs):
     current_user = request.user
@@ -97,9 +91,6 @@ def EditStartupProfile(request, **kwargs):
         startup.save()
     return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': current_user.id}))
 
-
-def random_template(request):
-    return render(request,"recruiter/CompanyDetailsCard.html")
 
 
 
