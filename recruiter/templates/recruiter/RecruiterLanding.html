@@ -1,97 +1,3 @@
-{% comment %} <!doctype  html>
-{% load static %}
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css" >
-    <link rel="stylesheet" href="{% static 'recruiter/css/RecruiterLanding.css' %}" >
-
-     
-    <title>login </title>
-  </head>
-  <body>
-  
-  
-  <nav class="navbar navbar-expand bg-light navbar-light justify-content-between">
-    <a href="#" class="float-right navbar-brand">Internfair</a>
-    <!-- Links -->
-    <ul class="navbar-nav">
-      
-      <li class="nav-item padding ">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item padding">
-        <a class="nav-link" href="#">Contact us</a>
-      </li>
-      <li class="nav-item  ">
-        <a class=" btn" href=" {% url 'recruiter:RecruiterRegistration' %}">Register</a>
-      </li>
-    </ul>
-  
-  </nav>
-      
-      
-    
-  
-
-      <div class="container-fluid bg-light border-top border-bottom "   >
-      
-        <div class="row pt-2 pb-5 pl-5 pr-5" >
-           
-          <div class="col-lg-5 col-md-5 col-xs-8  mt-5  ">
-            
-            <h1 class="head pl-3">Interested in Recruiting Students who push their limits</h1>
-            <p class="pl-3">Internfair provide perfect platform to connect with them</p><br>
-            
-            <div class="col-md-10 col-lg-8  ">
-              
-              <span class="float-left font-size"><h5>Recruiter's login </h5></span><span class="float-right links"><a href="{% url 'index' %}">I am Student</a></span><br>
-              
-              <form method='POST' action='../recruiter/login'>
-                {% csrf_token %}
-                <div class="form-group ">
-                  <!-- <label for="email" class=" mb-2 mr-2"> </label> -->
-                  <input type="text" class="form-control mb-2 mr-2" id="email" placeholder="Username" name="username">
-                </div>
-                <br>
-                <div class="form-group ">
-                  <label for="pwd" class=" mb-2 mr-2">Password:</label>
-                  <input type="password" class="form-control mb-2 mr-2" id="pwd" placeholder="Password" name="password">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-block  ">Login</button>
-                
-                <div class="links mt-1">
-                  <span class="float-left links "><a href="{% url  'recruiter:RecruiterRegistration'  %}">don't have an account</a></span>
-                  <span class="float-right links"> <a href="mailto:internfair@udgam-iitg.ac.in?subject=Send Me Password " title="Please Send a Mail with your Email id and Username, You will get it on mail">Forgot Password?</a>  </span>
-                  <br>
-                </div>
-              </form>
-            </div>
-            <br><br>
-          </div>
-        
-          <div class="col-xs-7 col-lg-7 col-md-7 bg-light justify-content-center bg   " ><img class= "img-fluid " src="{% static 'image/bg.jpeg' %}"></div>
-         
-           
-  
-        </div>
-      </div>
-
-      
-      
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-
- </body>
- </html>
-  {% endcomment %}
    
 <!DOCTYPE html>
 <html lang="en">
@@ -130,12 +36,12 @@
       <br><br><br>
       <div class="container">
         <div class="row justify-content-center align-items-center" style="margin-top:5vh">
-            <div class="col-lg-5 order-lg-1 order-md-1 order-12 col-md-6 col-10" style="padding-left:10vw;">
+            <div class="col-lg-5 order-lg-1 order-md-1 order-12 col-md-6 col-10 temp" style="padding-left:10vw;">
                 <span class="heading">Interested in Recruiting Students who push their limits?</span>
                 <br><br>
                 <span class="quote">Internfair provide perfect platform to connect with them</span>
                 <br><br><br>
-                <div style="width: 80%;">
+                <div class="form" style="width: 80%;">
                     <div class="row justify-content-end">
                         <div class="col-6">
                             <span class="studentLogin">Recruiter Login</span>

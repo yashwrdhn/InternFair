@@ -165,6 +165,9 @@ ul {
         height: 50vw;
         top: -260px;
     }
+    .heading{
+        font-size: 35px;
+    }
 }
 
 @media (max-width:990px) {
@@ -177,6 +180,10 @@ ul {
     .menu-item {
         margin-bottom: 2vh;
     }
+    .heading{
+        font-size: 25px;
+    }
+    
 }
 
 @media (max-width:750px) {
@@ -187,5 +194,11 @@ ul {
         top: -50px;
         right: 7px;
         height: 100%;
+    }
+    .form{
+        width:100% !important;
+    }
+    .temp{
+        padding-left: 0 !important;
     }
 }
