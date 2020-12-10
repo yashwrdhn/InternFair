@@ -62,14 +62,17 @@ def studentLogin(request):
         password = request.POST.get('Password')
         user = authenticate(username=username, password=password)
         if user:
-            if user.is_active and user.is_student:
-                login(request,user)
-                return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+            if user.is_student:
+                if user.is_active:
+                    login(request,user)
+                    return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+                else:
+                    return render(request, "StudentLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam-iitg.in to reactivate your account'})
                 # return redirect('/student/profile',kwargs={'pk': user.id})
             else:
-                return render(request, "StudentLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam-iitg.in to reactivate your account'})
+                return render(request, "StudentLanding.html",{'error':'Invalid login details entered. If you are a recruiter, login at recruiter page.'})
         else:
-            return render(request, "StudentLanding.html",{'error':'Invalid login details entered. If you are a recruiter, login at recruiter page.'})
+            return render(request, "StudentLanding.html",{'error':'Invalid login details entered.'})
             # return redirect('/', {'error':'Invalid login details given, If you are a recruiter, login at recruiter page.'})
     else:
         return redirect('/')
@@ -81,16 +84,19 @@ def startupLogin(request):
         user = authenticate(username=username, password=password)
 
         if user:
-            if user.is_active and user.is_startup:
-                login(request,user)
-                return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
-                return redirect('../recruiter/profile')
+            if user.is_startup:
+                if user.is_active:
+                    login(request,user)
+                    return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
+                    return redirect('../recruiter/profile')
+                else:
+                    return render(request, "recruiter/RecruiterLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam-iitg.in to reactivate your account'})
             else:
-                return render(request, "recruiter/RecruiterLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam-iitg.in to reactivate your account'})
+                return render(request, "recruiter/RecruiterLanding.html",{'error':'Invalid login details entered. If you are a student, login at student page.'})
 
                 # return redirect('../recruiter',{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
         else:
-            return render(request, "recruiter/RecruiterLanding.html",{'error':'Invalid login details entered. If you are a student, login at student page.'})
+            return render(request, "recruiter/RecruiterLanding.html",{'error':'Invalid login details entered.'})
 
             # return redirect('../recruiter',{'error':'Invalid login details given. If you are a student, loginin at student page.'})
     else:
