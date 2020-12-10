@@ -109,50 +109,55 @@
         </div>
       </div>
 
-      <!-- Apply Modal with company summary -->
+      {% comment %} Apply to compant modal {% endcomment %}
       <div class="applyToCompany" id="modal{{intern.id}}">
-        <div class="card">
-          <div class="upperpart">
-            <div class="image"> <img
+        <div class="applyCard" style="margin:auto;">
+            <div class="row">
+                <div class="col-3">
+                    <img
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="loading..." id="image"> </div>
-          </div>
-          <div class="name"><h1 style="width: fit-content;"> {{ intern.startup }}</h1><br> </div>
-          <div class="left">
-            <table>
+                alt="loading..." id="logo1" width="60%">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px; padding-bottom: 3px;">
+                <div class="col-10 test-left c-name">
+                    {{ intern.startup }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 text-left entry">
+                    <small>PROFILE</small><br>
+                    <span class="info">{{ intern.profile }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>ALLOWANCES</small><br>
+                    <span class="info">{{ intern.allowances }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>LOCATION</small><br>
+                    <span class="info">{{ intern.location }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>REMARKS</small><br>
+                    <span class="info">{{ intern.remarks }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>STIPEND</small><br>
+                    <span class="info">{{ intern.stipend}}</span>
+                </div>
 
-              <div class="left">
-                <div class="lead"> <p> PROFILE </p> </div>
-                <div class="answer"><p> {{ intern.profile }} </p> </div>
-                 <div class="lead"> <p> LOCATION </p> </div>
-                <div class="answer"><p> {{ intern.location }} </p> </div>
-                 <div class="lead"> <p> STIPEND </p> </div>
-                <div class="answer"><p> {{ intern.stipend }} </p> </div>
-
-              </div>
-
-
-              <div class="right">
-                <div class="lead"><p>ALLOWANCES </p> </div>
-                <div class="answer"> <p> {{ intern.allowances }} </p> </div>
-                <div class="lead"><p>REMARKS </p> </div>
-                <div class="answer"> <p> {{intern.remarks }} </p> </div>
-
-              </div>
-
-
-              <div class="button ml-4">
-                <button type="button" onclick="openQuestionModal({{intern.id}})" class="apply  ">Apply</button>
-              </div>
-            </table>
-
-          </div>
+            </div>
+            <div class="row" style="padding-top: 10px; padding-bottom:30px">
+                <div class="col-12 text-center">
+                    <button type="button" onclick="openQuestionModal({{intern.id}})" class="apply">Apply</button>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
       <!-- Question Modal -->
       <div class="questionModal" id="qModal{{intern.id}}">
-        <div class="quesCard">
+        <div class="quesCard" style="margin:auto">
           <div style="padding: 5%;">
             <div style="text-align: center;">
               <span class="heading">Internship Form</span><br><br>

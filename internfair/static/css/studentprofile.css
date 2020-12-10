@@ -451,7 +451,7 @@ edit profile modal css ends */
 
 /* Application Summary modal start */
 
-.applicationSummary {
+.summaryCompany{
   display: none;
   /* Hidden by default */
   position: fixed;
@@ -470,102 +470,73 @@ edit profile modal css ends */
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+  
+}
+.cancel{
+  color: white;
+  background: #416EA8;
+  border-radius: 5px;
+  width: 90%;
+  font-family: GT Walsheim Pro;
+  padding: 5px;
+  border-color: #416EA8;
+  margin-top: 15px;
 }
 
-
-.card {
-
+.summaryCard{
   font-family: GT Walsheim Pro;
   position: absolute;
   transform: translate(-50%, -50%);
   border: white;
   background-color: white !important;
-  padding: 30px;
-  margin: 20px;
-  padding: 36px 0px 0px 36px;
+  padding: 25px;
   align-self: center;
   top: 50%;
   left: 50%;
   position: absolute;
   width: 575px;
-  height: 455px;
+  height: fit-content;
+  box-sizing: border-box;
   background: #FFFFFF;
   border-radius: 16px;
 
+
 }
 
-.name {
-  width: 127px;
-  height: 41px;
-  font-size: 20px;
-  line-height: 41px;
-  margin: 0px 5px;
-  transform: translate(13px);
-  color: #212121;
-  font-weight: 600;
-  font-family: GT Walsheim Pro;
-}
-
-#image {
-
-  text-shadow: gray;
-  height: 60px;
-  transform: translate(10px);
-  background: url(google-new-logo-1030x541.jpg);
-}
-
-.right {
-
-  text-align: left;
-  top: 50%;
-  font-family: GT Walsheim Pro;
-  transform: translate(335px, -170px);
-}
-
-.left {
-  transform: translate(10px, 15px);
-}
-
-.answer {
+.c-name{
+  font-size: 30px;
+  word-wrap:break-word;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 18px;
-  color: #212121;
-  transform: translateY(-15px);
 }
 
-.lead {
-
-  font-style: normal;
-  transform: translateY(-5px);
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #B6B6B6;
-
+small{
+  color: #B6B6B6 !important;
 
 }
 
-.apply {
-  font-size: 16px;
-  align-self: center;
-  position: static;
-  width: 503px;
-
-  color: white;
-  background: #416EA8;
-  transform: translate(-33px, -130px) !important;
-  text-decoration-color: rgb(42, 42, 202);
-  transform: translateY(-170px);
-  border-radius: 5px;
-  border: blue;
+.entry{
+  padding-top: 7px;
 }
 
-.x {
-  transform: translateY(-13px);
+@media (max-width:750px) {
+  .summaryCard {
+    width: 80%;
+    height: fit-content;
+    padding-bottom: 10px;
+  }
+  .c-name{
+    font-size: 20px;
+  }
+}
+
+@media (max-width:370px) {
+  small{
+    font-size: 10px !important;
+  }
+  .c-name{
+    font-size: 15px;
+  }
+
 }
 
 /* Application Summary modal ends */

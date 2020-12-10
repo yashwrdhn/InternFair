@@ -185,42 +185,51 @@
       </div>
 
       <!-- Modal containing application summary and option for cancel -->
-      <div class="applicationSummary" id="modal{{intern.id}}">
-        <div class="card">
-          <div class="upperpart">
-            <div class="mx-3">
-<!--              <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="loading..." id="image">-->
-             <svg width="50" height="50" data-jdenticon-value="user{{intern.id}}"></svg>
+
+      <div class="summaryCompany" id="modal{{intern.id}}">
+        <div class="summaryCard" style="margin:auto;">
+            <div class="row">
+                <div class="col-3">
+                    <img
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                alt="loading..." id="logo" width="60%">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px; padding-bottom: 3px;">
+                <div class="col-10 test-left c-name">
+                    {{ intern.Internship.startup }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 text-left entry">
+                    <small>PROFILE</small><br>
+                    <span class="info">{{ intern.Internship.profile }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>ALLOWANCES</small><br>
+                    <span class="info">{{ intern.Internship.allowances }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>LOCATION</small><br>
+                    <span class="info">{{ intern.Internship.location }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>REMARKS</small><br>
+                    <span class="info">{{ intern.Internship.remarks }}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>STIPEND</small><br>
+                    <span class="info">{{ intern.Internship.stipend}}</span>
+                </div>
 
             </div>
-          </div>
-          <div class="name"><h1 style="width: fit-content;"> {{ intern.Internship.startup }}</h1><br></div>
-          <div class="left">
-            <table>
-              <div class="left">
-                <div class="lead"><p> PROFILE </p></div>
-                <div class="answer"><p>{{  intern.Internship.profile }}</p></div>
-                <div class="lead"><p> LOCATION </p></div>
-                <div class="answer"><p> {{  intern.Internship.location }} </p></div>
-                <div class="lead"><p> STIPEND </p></div>
-                <div class="answer"><p> {{  intern.Internship.stipend }} </p></div>
-              </div>
-              <div class="right">
-                <div class="lead"><p>ALLOWANCES </p></div>
-                <div class="answer"><p>{{ intern.Internship.allowances }}</p></div>
-                <div class="lead"><p> REMARKS </p></div>
-                <div class="answer"><p> {{ intern.Internship.remarks  }}.</p></div>
-                <div class="lead"><p> STATUS </p></div>
-                <div class="answer"><p> {{ intern.Status  }}</p></div>
-              </div>
-              <div class="button ml-3">
-              <button type="button" onclick="openConfirmModal({{intern.id}})" class="apply">Cancel Application</button>
-              </div>
-            </table>
-
-          </div>
+            <div class="row" style="padding-top: 10px; padding-bottom:30px">
+                <div class="col-12 text-center">
+                    <button type="button" onclick="openConfirmModal({{intern.id}})" class="cancel">Cancel Application</button>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
       <!-- Modal for confirming cancellation -->
       <div class="confirmCard" id="cModal{{intern.id}}">
