@@ -10,7 +10,12 @@
 body{
     font-family: GT Walsheim Pro !important;
 }
-
+a:hover
+ {
+      color:#000000;
+      text-decoration:none;
+      cursor:pointer;
+ }
 .brand {
     font-family: GT Walsheim Pro;
     font-style: normal;

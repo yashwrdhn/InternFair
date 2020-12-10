@@ -10,7 +10,7 @@ from recruiter.models import *
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -47,7 +47,7 @@ class StartUpsRegistration(CreateView):
         login(self.request, user)
         return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
 
-
+@login_required
 def StudentProfile(request,**kwargs):
 
     user = Students.objects.get(user=request.user)
@@ -62,7 +62,7 @@ def studentLogin(request):
         password = request.POST.get('Password')
         user = authenticate(username=username, password=password)
         if user:
-            if user.is_active:
+            if user.is_active and user.is_student:
                 login(request,user)
                 return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
                 # return redirect('/student/profile',kwargs={'pk': user.id})
@@ -80,7 +80,7 @@ def startupLogin(request):
         user = authenticate(username=username, password=password)
 
         if user:
-            if user.is_active:
+            if user.is_active and user.is_startup:
                 login(request,user)
                 return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
                 return redirect('../recruiter/profile')
@@ -94,7 +94,7 @@ def startupLogin(request):
 
 
 
-
+@login_required
 def AvailableInternships(request):
     if request.method == "POST":
         print(request.POST)
@@ -104,8 +104,9 @@ def AvailableInternships(request):
         id = request.POST['id']
         internship = Intern_form.objects.get(pk=id)
         answers  = request.POST.getlist("answers")
+        CV  = request.POST["CV"]
         print(internship.location)
-        app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers)
+        app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers,CV = CV)
         # app = [student.name,startup,profile,internship,answers]
         print(app)
         return redirect('StudentProfile')
@@ -119,7 +120,7 @@ def AvailableInternships(request):
         return render(request, template, context)
 
 
-
+@login_required
 def EditStudProfile(request, **kwargs):
     current_user = request.user
     student = Students.objects.get(user=current_user)
@@ -139,31 +140,21 @@ def EditStudProfile(request, **kwargs):
 
 
 
-# if request.method=='POST':
-#         if request.POST['title'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
-#             product=Product()
-#             product.title= request.POST['title']
-#             product.body= request.POST['body']
-
-#             if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
-#                 product.url= request.POST['url']
-#             else:
-#                 product.url= 'http://' + request.POST['url']
-
-#             product.icon = request.FILES['icon']
-#             product.image = request.FILES['image']
-#             product.pub_date= timezone.datetime.now()
-#             product.hunter = request.user
-#             product.save()
-            
-
-#             return redirect('/products/'+str(product.id))
-#         else:
-#             return render(request, 'products/create.html', {'error':'All fields are required.'})
-
-#     else:
-#         return render(request, 'products/create.html')
-
+@login_required
 def logout_view(request):
     logout(request)
     return redirect( 'index')
+
+@login_required
+def delete_app(request,**kwargs):
+    print(kwargs)
+    id = kwargs['pk']
+    student = Students.objects.get(user = request.user)
+    print(student)
+    intern_app = InternApplication.objects.get(pk = id)
+    intern_app.delete()
+
+    print(intern_app)
+
+
+    return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': student.id}))
