@@ -107,7 +107,7 @@ def startupLogin(request):
 @login_required
 def AvailableInternships(request):
     if request.method == "POST":
-        print(request.POST)
+        # print(request.POST)
         student = Students.objects.get(user=request.user)
         startup = request.POST["startup"]
         profile = request.POST["profile"]
@@ -115,11 +115,17 @@ def AvailableInternships(request):
         internship = Intern_form.objects.get(pk=id)
         answers  = request.POST.getlist("answers")
         CV  = request.POST["CV"]
-        print(internship.location)
-        app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers,CV = CV)
-        # app = [student.name,startup,profile,internship,answers]
-        print(app)
+        app_count = intern_app_count(student)
+        if app_count < 5  :
+            app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers,CV = CV)
+            # app = [student.name,startup,profile,internship,answers]
+            messages.success(request, f'You have successfully applied for internship in {startup} for  {profile} profile  ', '')
+        else:
+            messages.error(request, 'You have already applied for 5 Internships. You cannot apply for more. ','')
+
         return redirect('StudentProfile')
+
+
 
     else:
         available_internships = Intern_form.objects.all()
@@ -168,3 +174,9 @@ def delete_app(request,**kwargs):
 
 
     return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': student.id}))
+
+
+def intern_app_count(student):
+    count = InternApplication.objects.filter(Intern__id= student.id).count()
+    print(count)
+    return count
