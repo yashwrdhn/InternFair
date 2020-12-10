@@ -67,7 +67,7 @@ def studentLogin(request):
                 return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
                 # return redirect('/student/profile',kwargs={'pk': user.id})
             else:
-                return render(request, "StudentLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
+                return render(request, "StudentLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam-iitg.in to reactivate your account'})
         else:
             return render(request, "StudentLanding.html",{'error':'Invalid login details entered. If you are a recruiter, login at recruiter page.'})
             # return redirect('/', {'error':'Invalid login details given, If you are a recruiter, login at recruiter page.'})
@@ -86,7 +86,7 @@ def startupLogin(request):
                 return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': user.id}))
                 return redirect('../recruiter/profile')
             else:
-                return render(request, "recruiter/RecruiterLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
+                return render(request, "recruiter/RecruiterLanding.html",{'error':'User is flagged Inactive. Drop mail to internfair@udgam-iitg.in to reactivate your account'})
 
                 # return redirect('../recruiter',{'error':'User is flagged Inactive. Drop mail to internfair@udgam.in to reactivate your account'})
         else:
