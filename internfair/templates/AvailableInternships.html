@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+  <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
   <link rel="stylesheet" type="text/css" href="{% static 'css/AvailableInternships.css' %}">
 
   <title>Available internships</title>
@@ -20,6 +20,7 @@
       <div class="col-4">
         <span>Available Internships</span>
       </div>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
             <a class="nav-link activo activa hov" href="#" style="color: #416EA8;">Available Internship</a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link hov" href="#">Contact Us</a>
+            <a class="nav-link hov" href="mailto:internfair@udgam-iitg.ac.in" title="Send us Mail with any of your Query, We will respond you, at our earliest.">Contact Us</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link activa hov" href="{% url 'StudentLogout' %}" style="color: #416EA8;">Log Out</a>
@@ -48,11 +49,12 @@
     <hr class="line">
    <div class="container-fluid">
 
-    <div class="row mb-5 justify-content-between">
-      <div class="col-md-6 pb-4 pb-md-0" style="font-size: 1.5rem">
-        <a class="d-block d-lg-inline" href="#">Available Internships</a>
+    <div class="row mb-3 justify-content-between">
+
+      <div class="col-md-5 pb-3  mx-5 pb-md-0 alert alert-warning" style="font-size: 1rem">
+        Please note you can only apply to a maximum of 5 Internships
       </div>
-      <div class="col-md-6 d-flex col-lg-4 flex-row-reverse align-items-start">
+      <div class="col-md-4 d-flex mx-5 col-lg-4 flex-row-reverse align-items-start">
         <button class="btn btn-outline-primary">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
@@ -91,10 +93,11 @@
       <!-- First row -->
       {% for intern in interns %}
       <div class="row p-2 p-md-0 top" id="{{intern.id}}" onclick="openApplyModal({{intern.id}})">
-        <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0">
+        <div class="col-3 col-md-auto  padding p-0 mx-3 m-md-0">
 <!--          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEVBaeG1ENgtAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"-->
 <!--            class="img-fluid">-->
-          <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="loading..." id="image">
+<!--          <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="loading..." id="image">-->
+        <svg width="25" height="25" data-jdenticon-value="user{{intern.id}}"></svg>
         </div>
         <div class="col-auto col-md p-0 px-md-3">
           <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
@@ -133,13 +136,13 @@
                 <div class="lead"><p>ALLOWANCES </p> </div>
                 <div class="answer"> <p> {{ intern.allowances }} </p> </div>
                 <div class="lead"><p>REMARKS </p> </div>
-                <div class="answer"> <p> N/A </p> </div>
+                <div class="answer"> <p> {{intern.remarks }} </p> </div>
 
               </div>
 
 
               <div class="button ml-4">
-                <button type="button " onclick="openQuestionModal({{intern.id}})" class="apply  ">Apply</button>
+                <button type="button" onclick="openQuestionModal({{intern.id}})" class="apply  ">Apply</button>
               </div>
             </table>
 
@@ -165,8 +168,9 @@
               <input type="hidden"  name = "startup"  value='{{ intern.startup }}'>
               <input type="hidden"  name = "profile"  value="{{ intern.profile }}">
               <input type="hidden"  name = "id"  value="{{ intern.id }}">
+              <span class="">CV (google drive link) </span>
+              <input type="text"  name = "CV" class="input">
               {% for ques in intern.string_as_list  %}
-
               <span class="">{{ ques }}</span>
               <input type="text"  name = "answers" class="input">
 

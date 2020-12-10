@@ -64,6 +64,12 @@ body {
     min-height: 100bh;
 
 }
+a:hover
+ {
+      color:#000000;
+      text-decoration:none;
+      cursor:pointer;
+ }
 
  .links {
      color :6696DD;

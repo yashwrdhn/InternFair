@@ -10,6 +10,7 @@
 <body>
 
 {% block content  %}
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
 
   <div class="row mb-3 justify-content-between">
     <div class="col-md-8 pb-4 ml-sm-5 pb-md-0 highlight">
@@ -35,7 +36,12 @@
 
     {% for intern in app %}
       <div class="row p-2 p-md-0 top" >
-      <div class="col-3 col-md-auto profile-userpic padding p-0 mx-3 m-md-0"><img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid"></div>
+      <div class="col-3 col-md-auto  padding pt-3 mx-3 m-md-0">
+<!--          <img src="https://cdn130.picsart.com/321379439036201.jpg?type=webp&to=crop&r=256" class="img-fluid">-->
+      <svg data-jdenticon-value="user127{{intern.id }}" width="30" height="30">
+        Fallback text or image for browsers not supporting inline svg.
+      </svg>
+      </div>
       <div class="col-auto col-md p-0 px-md-3 " data-target="#model{{ intern.id }}" data-toggle="modal">
         <div class="row flex-column flex-md-row  justify-content-center " style="height: 100%;">
 
@@ -62,8 +68,8 @@
             <h3 class="modal-title pl-4 pt-4"><b>{{ intern.Intern.name }}</b></h3>
           <div class="modal-body">
               {% for key,value in intern.count_intern_Answers.items %}
-              <p><h7 id="ques">Q</h7> <b>{{ key }}</b><br>
-                  <h7 id="ans">-></h7>{{ value }}</p>
+              <p> <h7  style="color:#416EA8!important;"> Q : {{ key }}</h7><br>
+                  <h7 >{{ value }}</h7></p>
               {% endfor %}
 
 
@@ -94,19 +100,20 @@
 
 
               <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
-                <img src="{% static 'image/test_image_ecell.jpg' %}" class="rounded-circle img-fluid" alt="">
+<!--                <img src="{% static 'image/test_image_ecell.jpg' %}" class="rounded-circle img-fluid" alt="">-->
+               <svg data-jdenticon-value="user127{{intern.id }}" width="80" height="80"></svg>
+
               </div>
 
 
-              <p><h7 id="ques">DEPARTMENT</h7><br><b>{{ intern.Intern.department }}</b></p>
-              <p><h7 id="ques">ROLL NO.</h7><br><b>{{ intern.Intern.roll_number }}</b></p>
-              <p><h7 id="ques">BIO</h7><br><b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus facilis, quas est qui omnis
-                                ea!</b></p>
+              <p><h7 style="color:#416EA8!important;">DEPARTMENT</h7><br>{{ intern.Intern.department }}</p>
+              <p><h7 style="color:#416EA8!important;">ROLL NO.</h7><br>{{ intern.Intern.roll_number }}</p>
+              <p><h7 style="color:#416EA8!important;">CV</h7><br><a href="{{ intern.CV }} " >Student CV</a></p>
 
             <div class="pb-3 mx-2 ">
 
-                <a href='#model2{{ intern.id }}' class= 'btn px-3 my-2 btn-outline-primary border-lg' data-dismiss='modal' data-toggle="modal">View Answers to form</a>
-                <a href="{% url 'recruiter:shortlistedInterns' intern.id %}" class='btn  mx-1 px-5 my-2 btn-primary border-lg '>Shortlist</a>
+                <a href='#model2{{ intern.id }}' class= 'btn px-3 mx-3 my-2 btn-outline-primary border-lg' data-dismiss='modal' data-toggle="modal">View Answers to form</a>
+                <a href="{% url 'recruiter:shortlistedInterns' intern.id %}" class='btn  mx-3 px-5 my-2 btn-primary border-lg '>Shortlist</a>
 
             </div>
 

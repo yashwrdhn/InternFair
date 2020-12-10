@@ -10,7 +10,7 @@ class Intern_form(models.Model):
     questions = models.TextField(max_length=200)
     status = { ('ACTIVE','ACTIVE'),('DEACTIVE','DEACTIVE')}
     FormStatus = models.CharField(max_length=10,choices=status,default='ACTIVE')
-
+    remarks = models.CharField(max_length=200,default=".")
     def string_as_list(self):
         print(self.questions)
         ques = self.questions.split(',')
@@ -40,8 +40,8 @@ class InternApplication(models.Model):
     Intern = models.ForeignKey(Students,on_delete=models.CASCADE)
     Internship = models.ForeignKey(Intern_form,on_delete = models.CASCADE)
     Status = models.CharField(max_length=20,choices=status,default='PENDING')
-    Answers = models.TextField(max_length=200)
-
+    Answers = models.TextField(max_length=400)
+    CV  = models.CharField(max_length=200,default="not submitted")
     def __str__(self):
         return '{}-{}'.format(self.Intern,self.Internship)
 

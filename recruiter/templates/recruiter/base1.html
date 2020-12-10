@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'recruiter/css/AvailableInterns.css' %}">
    <link rel="stylesheet" href="{% static 'recruiter/css/theme_config.css' %}" >
@@ -34,7 +34,7 @@
             <a class="nav-link" href="{% url 'recruiter:InternList' startup.id %}">Internship Statistics</a>
           </li>
           <li class="nav-item active py-md-2">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="mailto:internfair@udgam-iitg.ac.in" title="Send us Mail with any of your Query, We will respond you, at our earliest.">Contact Us</a>
           </li>
           <li class="nav-item active py-md-2">
             <a class="nav-link" href="{% url 'recruiter:StartupLogout' %}" style="color: #416EA8;">Log Out</a>
@@ -47,7 +47,12 @@
 
   <div class="container">
     <div class="row" style="margin-top: 6rem;">
-      <div class="col-12 col-md-2 d-flex justify-content-center align-items-center"><img src="https://demo.appcarvers.com/junite/media/com_easysocial/photos/1606/4686/google-logo-icon-png-transparent-background_thumbnail.png" id="logo"></div>
+      <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
+<!--          <img src="https://demo.appcarvers.com/junite/media/com_easysocial/photos/1606/4686/google-logo-icon-png-transparent-background_thumbnail.png" id="logo">-->
+      <svg data-jdenticon-value="user17{{startup.id }}" width="80" height="80">
+        
+      </svg>
+      </div>
     <div class="col-md-4 pb-3 pb-md-0">
       <h1 id="company-name">{{startup.companyName}}</h1>
       <div class="light-text" style="font-size: .75rem;">COMPANY DESCRIPTION</div>
@@ -87,8 +92,9 @@
                 {% csrf_token %}
                     <div class="prelim mx-auto">
                      <div class="pb-3 pt-2 mx-auto" style="max-width:30%;">
-                        <img src="{% static 'image/p.png' %}" class="rounded-circle img-fluid" alt="">
-                      </div>
+<!--                        <img src="{% static 'image/p.png' %}" class="rounded-circle img-fluid" alt="">-->
+                     <svg data-jdenticon-value="user17{{startup.id }}" width="80" height="80"></svg>
+                     </div>
                       <div class='text-center'>
                          <button class=" btn btn-sm   btn-primary submit " onclick="document.getElementById('getFile').click()">Upload/Change Company Photo</button>
                       </div>

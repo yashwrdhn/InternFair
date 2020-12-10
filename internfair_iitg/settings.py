@@ -131,3 +131,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "internfair/static/"),
 
 ]
+
+LOGIN_URL = '/'

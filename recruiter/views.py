@@ -5,7 +5,7 @@ from internfair.models import *
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from internfair.models import *
 from .models import *
@@ -20,7 +20,7 @@ def RecruiterLanding(request):
 #     template = "recruiter/RecruiterRegistration.html"
 #     return render(request, template)
 
-
+@login_required(login_url='/recruiter')
 def AvailableInterns(request,**kwargs):
 
     startup_object = StartUps.objects.get(user=request.user)
@@ -32,24 +32,25 @@ def AvailableInterns(request,**kwargs):
     return render(request, template,context)
 
 
-
+@login_required(login_url='/recruiter')
 def ShortlistedInterns(request,**kwargs):
+    if request.user.is_authenticated:
+        startup_object = StartUps.objects.get(user=request.user)
+        AllApplications = InternApplication.objects.filter(Internship__startup=startup_object)
+        Applications = AllApplications.filter(Status='SHORTLISTED')
+        template = "recruiter/ShortlistedInterns.html"
+        if kwargs:
 
-    startup_object = StartUps.objects.get(user=request.user)
-    AllApplications = InternApplication.objects.filter(Internship__startup=startup_object)
-    Applications = AllApplications.filter(Status='SHORTLISTED')
-    template = "recruiter/ShortlistedInterns.html"
-    if kwargs:
+            pk = kwargs['pk']
+            # print(pk)
+            intern = AllApplications.get(id = pk)
 
-        pk = kwargs['pk']
-        # print(pk)
-        intern = AllApplications.get(id = pk)
+            intern.Status = 'SHORTLISTED'
+            intern.save()
 
-        intern.Status = 'SHORTLISTED'
-        intern.save()
-
-    return render(request, template,{'startup': startup_object, 'app': Applications})
-
+        return render(request, template,{'startup': startup_object, 'app': Applications})
+    else:
+        return redirect('recruiter:RecruiterLanding')
 
 
 def add_profiles(request):
@@ -57,7 +58,7 @@ def add_profiles(request):
     return render(request, template)
 
 
-
+@login_required
 def CompanyProfile(request,**kwargs):
     current_user = request.user
     startup_object = StartUps.objects.get(user=current_user)
@@ -65,7 +66,7 @@ def CompanyProfile(request,**kwargs):
     template = "recruiter/CompanyProfile.html"
     return render(request, template,{'startup': startup_object,'profiles':profiles})
 
-
+@login_required
 def DeactivateForm(request,pk):
 
     id = pk
@@ -77,7 +78,7 @@ def DeactivateForm(request,pk):
     form.save()
     return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': request.user.id}))
 
-
+@login_required
 def EditStartupProfile(request, **kwargs):
     current_user = request.user
     startup = StartUps.objects.get(user=current_user)
@@ -95,7 +96,7 @@ def EditStartupProfile(request, **kwargs):
 
 
 
-
+@login_required
 def intern_form(request):
 
     if request.method == "POST":
@@ -113,7 +114,7 @@ def intern_form(request):
         return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': request.user.id}))
 
 
-
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('recruiter:RecruiterLanding')

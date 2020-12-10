@@ -11,7 +11,12 @@
 .container{
     max-width: 100% !important;
 }
-
+a:hover
+ {
+      color:#000000;
+      text-decoration:none;
+      cursor:pointer;
+ }
 .brand {
     font-family: GT Walsheim Pro;
     font-style: normal;

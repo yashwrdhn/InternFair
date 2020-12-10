@@ -12,7 +12,12 @@ body{
     font-family: "GT Walshein Pro";
     font-size: 1rem;
 }
-
+a:hover
+ {
+      color:#000000;
+      text-decoration:none;
+      cursor:pointer;
+ }
 .navbar-brand{
     padding-left: 130px;
     padding-top: 10px;
