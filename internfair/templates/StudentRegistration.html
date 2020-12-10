@@ -57,6 +57,13 @@
                 <span style="color:red">{{ error }}</span>
               {% endfor %}
     {% endfor %}
+    {% if messages %}
+
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red">{{ message }}</li>
+          {% endfor %}
+
+      {% endif %}
       <div>
         <button type="submit" class="btn btn-primary btn-lg btn-block regn">Register</button>
       </div>
