@@ -22,7 +22,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="#">Internfair</a>
+    <a class="navbar-brand" href="{% url 'StudentLogin' %}">Internfair</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
       </ul>
     </div>
     <form class="form-inline register">
-      <a class="btn btn-primary " href="#" role="button">Register</a>
+      <a class="btn btn-primary " href="{% url 'StudentLogin' %}" role="button">Login</a>
     </form>
   </nav>
 
@@ -62,7 +62,7 @@
       </div>
       <br>
   </form>
-  <div class="student"><a class="intern" href="{% url 'recruiter:RecruiterLanding' %}"> I am a recruiter</a></div>
+  <div class="student"><a class="intern" href="{% url 'recruiter:RecruiterRegistration' %}"> I am a recruiter</a></div>
 
 </body>
 
