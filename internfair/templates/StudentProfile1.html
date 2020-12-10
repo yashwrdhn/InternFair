@@ -129,10 +129,22 @@
 
     <!-- List of registered internships  -->
     <div class="row mb-4 justify-content-between">
-      <div class="col-md-6 pb-4 pb-md-0" style="font-size: 1.5rem">
+      <div class="col-md-4 pb-4 pb-md-0" style="font-size: 1.5rem">
        Internships you've registered for
       </div>
+
+      {% if messages %}
+<!--    <ul class="messages">-->
+        {% for message in messages %}
+<!--        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>-->
+         <div class="alert mx-auto alert-primary">{{ message }} </div>
+<!--        </li>-->
+        {% endfor %}
+<!--        </ul>-->
+        {% endif %}
+
     </div>
+
 
 
     <!-- If internship not applied -->
