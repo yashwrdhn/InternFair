@@ -8,15 +8,18 @@
     font-style: normal;
 }
 
-.container{
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.container {
     max-width: 100% !important;
 }
-a:hover
- {
-      color:#000000;
-      text-decoration:none;
-      cursor:pointer;
- }
+
+a:hover {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .brand {
     font-family: GT Walsheim Pro;
     font-style: normal;
@@ -26,7 +29,7 @@ a:hover
     color: #484A52;
 }
 
-.nav-menu{
+.nav-menu {
     font-family: GT Walsheim Pro;
     font-style: normal;
     font-weight: 500;
@@ -36,18 +39,18 @@ a:hover
     overflow: hidden;
 }
 
-ul{
+ul {
     margin-left: auto;
     position: relative;
     left: 22vw;
 }
 
-.menu-item{
+.menu-item {
     width: fit-content;
     box-sizing: content-box;
 }
 
-.RegisterBtn{
+.RegisterBtn {
     width: 91px;
     height: 34px;
     background: #416EA8;
@@ -57,30 +60,30 @@ ul{
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
-    color: #FFFFFF; 
-    border: none;   
+    color: #FFFFFF;
+    border: none;
 }
 
-.sideImg{
+.sideImg {
     position: absolute;
     top: -40vh;
     right: 0;
     height: 93vh;
     z-index: -20;
-    
+
 }
 
-.heading{
+.heading {
     font-family: GT Walsheim Pro;
     font-style: normal;
     font-weight: 700;
     font-size: 48px;
     line-height: 55px;
-    padding-top:8vh;
+    padding-top: 8vh;
     color: #212121;
 }
 
-.quote{
+.quote {
     font-family: GT Walsheim Pro;
     font-style: normal;
     font-weight: normal;
@@ -91,7 +94,7 @@ ul{
 
 }
 
-.studentLogin{
+.studentLogin {
     font-family: GT Walsheim Pro;
     font-style: normal;
     font-weight: bold;
@@ -102,7 +105,7 @@ ul{
 
 }
 
-.recruiter{
+.recruiter {
     font-family: GT Walsheim Pro;
     font-style: normal;
     font-weight: normal;
@@ -112,7 +115,7 @@ ul{
     color: #6696DD;
 }
 
-.input{
+.input {
     width: 100%;
     height: 64px;
     border: none;
@@ -122,7 +125,7 @@ ul{
     margin-top: 24px;
 }
 
-.login{
+.login {
     width: 100%;
     height: 64px;
     border: none;
@@ -139,7 +142,7 @@ ul{
     color: #FFFFFF;
 }
 
-::placeholder{
+::placeholder {
     font-family: GT Walsheim Pro;
     font-style: normal;
     font-weight: 500;
@@ -148,29 +151,36 @@ ul{
     color: #484A52;
 }
 
+.error {
+    margin: 10px 0px;
+    padding: 12px;
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
 
-@media (max-width:1270px) and (min-width:751px){
-    .sideImg{
+
+@media (max-width:1270px) and (min-width:751px) {
+    .sideImg {
         width: 70vw;
         height: 50vw;
         top: -260px;
     }
 }
 
-@media (max-width:990px){
+@media (max-width:990px) {
 
-    ul{
+    ul {
         margin-left: 0 !important;
         left: 0;
     }
 
-    .menu-item{
+    .menu-item {
         margin-bottom: 2vh;
     }
 }
 
-@media (max-width:750px){
-    .sideImg{
+@media (max-width:750px) {
+    .sideImg {
         position: relative;
         z-index: 0;
         width: 102%;
