@@ -26,10 +26,17 @@ class StudentRegistration(CreateView):
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
+        givenemail = str(self.request.user)
+        print(givenemail)
+        iitgmail = "iitg.ac.in"
+        if givenemail.find(iitgmail)== True:
+            user = form.save()
+            login(self.request, user)
+            return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
 
-        return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
+        else:
+            messages.info(self.request, 'Please Enter IITG webmail id only.')
+            return redirect('StudentRegistration')
 
 
 
@@ -178,7 +185,9 @@ def delete_app(request,**kwargs):
     return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': student.id}))
 
 
+
 def intern_app_count(student):
     count = InternApplication.objects.filter(Intern__id= student.id).count()
     print(count)
     return count
+
