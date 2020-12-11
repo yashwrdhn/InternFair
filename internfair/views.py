@@ -115,8 +115,10 @@ def AvailableInternships(request):
         internship = Intern_form.objects.get(pk=id)
         answers  = request.POST.getlist("answers")
         CV  = request.POST["CV"]
-        app_count = intern_app_count(student)
+        app_count = student.intern_count
         if app_count < 5  :
+            student.intern_count = app_count + 1
+            student.save()
             app = InternApplication.objects.create(Intern=student,Internship = internship, Answers=answers,CV = CV)
             # app = [student.name,startup,profile,internship,answers]
             messages.success(request, f'You have successfully applied for internship in {startup} for  {profile} profile  ', '')

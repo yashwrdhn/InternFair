@@ -54,7 +54,7 @@
       <svg data-jdenticon-value="user{{student.id}}" width="80" height="80"></svg>
       </div>
 
-      <div class="col-md-6 pb-3 pb-md-0">
+      <div class="col-md-4 pb-3 pb-md-0">
         <h1 id="company-name">{{student.name}}</h1>
         <div class="light-text" style="font-size: .75rem;">DEPARTMENT</div>
         <p>{{student.department}}</p>
@@ -66,7 +66,23 @@
 
         <a href="#" style="color: #416EA8; font-size: .75rem;" onclick="openEditModal()">Edit Profile</a>
       </div>
-      
+
+        <div class="col-md-2 col-lg-4 bg-white rounded-lg p-3 ">
+        <h2 class="h6 font-weight-bold text-center mb-4">Internships Applied</h2>
+
+        <!-- Progress bar 1 -->
+        <div class="progress mx-auto" data-value='{{  student.intern_count }}'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h2 font-weight-bold">{{ student.intern_count }}/5</div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <hr class="line">
@@ -105,7 +121,7 @@
           <span class="full">
 
               Kindly use full name.Eg: Mechanical Engineering*. <br>
-            
+
           </span>
           <label class="company-name" for="BIO">
             BIO
@@ -202,9 +218,7 @@
         <div class="summaryCard" style="margin:auto;">
             <div class="row">
                 <div class="col-3">
-                    <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="loading..." id="logo" width="60%">
+                     <svg width="80" height="80" data-jdenticon-value="user{{intern.id}}"></svg>
                 </div>
             </div>
             <div class="row" style="padding-top: 10px; padding-bottom: 3px;">
@@ -250,7 +264,7 @@
             <div class=" col-12 col-sm-8 col-xl-6 bg-light d-flex justify-content-center"
               style="border-radius: 1rem !important">
               <div class="col-12 col-md-10 col-lg-9 col-xl-8 card-body text-center card-text">
-                <img src="https://c7.uihere.com/files/557/90/534/google-logo-g-suite-google.jpg" id="logo">
+               <svg width="50" height="50" data-jdenticon-value="user{{intern.id}}"></svg>
                 <p class="m-0">Are you sure that you want to cancel your application for internship in</p>
                 <p id="company">{{ intern.Internship.startup }}</p>
                 <a href="{% url 'delete_app' intern.id %}" class="btn btn-custom py-1 px-3" onclick="cancelApplication({{intern.id}})">Yes</a>
@@ -326,5 +340,85 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+<script>
 
+$(document).ready(function() {
+
+  $(".progress").each(function() {
+
+    var value = $(this).attr('data-value')*20;
+    var left = $(this).find('.progress-left .progress-bar');
+    var right = $(this).find('.progress-right .progress-bar');
+
+    if (value > 0) {
+      if (value <= 50) {
+        right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+      } else {
+        right.css('transform', 'rotate(180deg)')
+        left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+      }
+    }
+
+  })
+
+  function percentageToDegrees(percentage) {
+    return percentage / 100 * 360
+  }
+
+});
+
+
+</script>
+<script>
+	 function openEditModal() {
+    var modal = document.getElementById("editProfileModal");
+    modal.style.display = "block";
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+
+  function closeEditModal() {
+    var modal = document.getElementById("editProfileModal");
+    modal.style.display = "none";
+  }
+
+  function openSummaryModal(i) {
+    var modal = document.getElementById("modal" + i);
+    modal.style.display = "block";
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+
+  function openConfirmModal(i) {
+    var modal = document.getElementById("modal" + i);
+    modal.style.display = "none";
+    modal = document.getElementById("cModal" + i);
+    modal.style.display = "block";
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+
+  function backModal(i) {
+    var modal = document.getElementById("cModal" + i);
+    modal.style.display = "none";
+    modal = document.getElementById("modal" + i);
+    modal.style.display = "block";
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+
+
+	</script>
 </html>
