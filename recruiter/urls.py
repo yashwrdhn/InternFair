@@ -1,4 +1,4 @@
-from django.urls import include, path,re_path
+from django.conf.urls import include, path,re_path
 from . import views
 from internfair import views as stViews
 
