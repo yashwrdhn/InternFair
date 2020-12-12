@@ -33,7 +33,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS=True
 SECURE_HSTS_SECONDS = 31536000
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['161.202.169.51','127.0.0.1', 'localhost']
 
 
 # Application definition
