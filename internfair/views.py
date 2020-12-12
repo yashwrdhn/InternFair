@@ -26,10 +26,10 @@ class StudentRegistration(CreateView):
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
-        givenemail = str(self.request.user)
+        givenemail = str(form.cleaned_data.get('email'))
         print(givenemail)
         iitgmail = "iitg.ac.in"
-        if givenemail.find(iitgmail)== True:
+        if iitgmail in givenemail :
             user = form.save()
             login(self.request, user)
             return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': user.id}))
