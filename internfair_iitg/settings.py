@@ -37,7 +37,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
 
 
-ALLOWED_HOSTS = ['161.202.169.51','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['161.202.169.51', '10.116.117.242', '127.0.0.1', 'localhost']
 
 
 # Application definition
