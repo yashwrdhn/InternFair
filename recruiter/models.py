@@ -13,9 +13,9 @@ class Intern_form(models.Model):
     FormStatus = models.CharField(max_length=10,choices=status,default='ACTIVE')
     remarks = models.CharField(max_length=200,default=".")
     def string_as_list(self):
-        print(self.questions)
+        # print(self.questions)
         ques = self.questions.split(',')
-        print(ques)
+        # print(ques)
         for q in ques:
             if q == '':
                 ques.remove(q)
@@ -57,11 +57,11 @@ class InternApplication(models.Model):
         # print(ques)
         ques_list = ques.split(',')
         # print(ques)
-        print(ques)
+        # print(ques)
         for q in ques_list:
             if q == '':
                 ques_list.remove(q)
-        print(ques_list)
+        # print(ques_list)
 
         QnA = dict(zip(ques_list,ans_list))
         return QnA

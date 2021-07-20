@@ -26,20 +26,14 @@ SECRET_KEY = 'kfbcj)ilo6_ewd5n)yq^$6#g73=2v@#w!@&_s^jk47@3i3v5&&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-SECURE_SSL_REDIRECT=True
-SESSION_COOKIE_SECURE=True
-SECURE_HSTS_PRELOAD=True
-SECURE_HSTS_INCLUDE_SUBDOMAINS=True
-SECURE_HSTS_SECONDS = 31536000
 
-
-ALLOWED_HOSTS = ['161.202.169.51','127.0.0.1', 'localhost']
-
+ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
     'internfair.apps.InternfairConfig',
+
     'recruiter.apps.RecruiterConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -142,3 +136,6 @@ STATICFILES_DIRS = [
 LOGIN_URL = '/'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

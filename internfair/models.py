@@ -28,7 +28,6 @@ class StartUps(models.Model):
     description = models.CharField(max_length=500, default="Edit Profile to add description")
     location = models.CharField(max_length=100, default="Edit profile to add location")
 
-
     def __str__(self):
         return self.user.username
 

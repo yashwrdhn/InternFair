@@ -96,9 +96,10 @@
   <div class="profile-img-card"><svg data-jdenticon-value="user{{student.id}}" width="80" height="80"></svg></div>
 <!--        <img id="profile-img" class="profile-img-card" src="{% static 'image/test_image_ecell.jpg' %}" />-->
         <div class="col-md-12 text-center">
+            <form class="form-signin" method='POST' action="{% url 'editStudentProfile' student.id %}" enctype="multipart/form-data">
           <button class="uploadbtn" onclick="document.getElementById('getFile').click()"
             style="width: fit-content;">Upload/Change Your Photo</button>
-          <input type='file' id="getFile" style="display:none">
+          <input type='file' id="getFile" name='logo' style="display:none">
         </div>
         <span class="full" style="text-align: center; padding-top: 5px;">
           <a href="#">
@@ -107,7 +108,7 @@
         </span>
 
         <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signin" method='POST' action="{% url 'editStudentProfile' student.id %}">
+
         {% csrf_token %}
           <span id="reauth-email" class="reauth-email"></span>
           <label class="company-name" for="ROLL NUMBER">
@@ -246,6 +247,10 @@
                 <div class="col-6 text-left entry">
                     <small>STIPEND</small><br>
                     <span class="info">{{ intern.Internship.stipend}}</span>
+                </div>
+                <div class="col-6 text-left entry">
+                    <small>STATUS</small><br>
+                    <span class="info">{{ intern.Status}}</span>
                 </div>
 
             </div>

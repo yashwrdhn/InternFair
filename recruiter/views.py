@@ -89,6 +89,9 @@ def EditStartupProfile(request, **kwargs):
             startup.description = request.POST['description']
         if request.POST['location']:
             startup.location = request.POST['location']
+        if request.POST['logo']:
+            student.logo = request.POST['logo']
+        print(request.POST)
         startup.save()
     return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': current_user.id}))
 
@@ -106,9 +109,10 @@ def intern_form(request):
         stipend = request.POST["STIPEND"]
         allowances = request.POST["ALLOWANCE"]
         location = request.POST["LOCATION"]
+        remarks = request.POST["REMARKS"]
         questions =  f'{request.POST["Q1"]},{request.POST["Q2"]},{request.POST["Q3"]}'
 
-        form = Intern_form.objects.create(startup = startup,profile=profile,stipend=stipend,allowances=allowances,location=location,questions=questions)
+        form = Intern_form.objects.create(startup = startup,profile=profile,stipend=stipend,allowances=allowances,location=location,questions=questions,remarks = remarks)
         form.save()
         print(form)
         return HttpResponseRedirect(reverse('recruiter:Profile',kwargs={'pk': request.user.id}))

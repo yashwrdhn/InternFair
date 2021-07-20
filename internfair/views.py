@@ -156,6 +156,7 @@ def EditStudProfile(request, **kwargs):
             student.department = request.POST['department']
         if request.POST['bio']:
             student.bio = request.POST['bio']
+
         student.save()
     return HttpResponseRedirect(reverse('StudentProfile',kwargs={'pk': current_user.id}))
 
